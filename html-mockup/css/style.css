@@ -83,10 +83,12 @@ VARIABLES
   --color-dark-blue: #03008C;
   --color-purple: #6400B2;
   --color-blue: #68AAE8;
+  --color-light-blue: #94cbff;
   --color-white: #F2F2F2;
   --color-orange: #FB6107;
   --color-green: #679436;
   --color-red: #720E07;
+  --color-bright-red: #D10E00;
   --color-yellow: #F5F749;
 }
 
@@ -125,6 +127,30 @@ h2 {
   font-size: 24px;
 }
 
+a {
+  color: var(--color-light-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: 5px;
+  color: var(--color-black);
+  cursor: pointer;
+  font: bold 14px 'Raleway', Arial, sans-serif;
+  padding: .5rem 1.5rem;
+  text-decoration: none;
+}
+
+input {
+  font: 14px 'Raleway', Arial, sans-serif;
+}
+
 /* ****************************************
 WRAPPER GRID
 **************************************** */
@@ -149,7 +175,7 @@ nav {
   display: flex;
   flex-direction: row;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1600px;
   padding: .5rem;
 }
 
@@ -283,11 +309,13 @@ main {
   grid-column: 1;
   grid-row: 2/3;
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow-x: hidden; /* for horizontile scrolling containers */
 }
 
+/* Homepage */
+
 .main-cta {
-  background: linear-gradient(-20deg, var(--color-dark-blue), var(--color-purple), var(--color-red));
+  background: linear-gradient(-20deg, var(--color-dark-blue), var(--color-purple), var(--color-bright-red));
 	background-size: 150% 150%;
   color: var(--color-white);
 	animation: cta-gradient 10s ease infinite;
@@ -343,8 +371,6 @@ main {
 .popular-movies-container {
   margin: 0 auto;
   max-width: 1200px;
-  /* overflow-x: auto; */
-  /* width: 100vw; */
 }
 
 .popular-movies-container h2 {
@@ -400,6 +426,53 @@ main {
   text-decoration: none;
 }
 
+/* Login and Signup page */
+
+.login-signup {
+  margin: 0 auto;
+  padding: 1rem;
+  max-width: 350px;
+}
+
+.login-signup h2 {
+  margin-bottom: 1rem;
+}
+
+.login-signup label {
+  display: block;
+  margin: .5rem 0;
+}
+
+.login-signup input {
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 1rem;
+  padding: .5rem;
+  width: 100%;
+}
+
+.login-signup p {
+  margin: 1rem 0;
+}
+
+/* Error Message */
+
+.error-message {
+  border: 3px solid var(--color-bright-red);
+  border-radius: 3px;
+  color: var(--color-white);
+  font-weight: bold;
+  padding: .5rem;
+}
+
+.error-message ul {
+  list-style-type: disc;
+}
+
+.error-message li {
+  margin-left: 1rem;
+}
+
 /* ****************************************
 FOOTER
 **************************************** */
@@ -416,19 +489,14 @@ footer {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1600px;
   padding: 1rem;
-}
-
-#footer-container a {
-  color: var(--color-blue);
-  text-decoration: none;
 }
 
 #ymc-attr {
   margin: 0 auto 1rem;
   max-width: 275px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 #tmdb-attr {
