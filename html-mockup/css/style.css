@@ -82,6 +82,7 @@ VARIABLES
   --color-light-grey: #959595;
   --color-dark-blue: #03008C;
   --color-purple: #6400B2;
+  --color-light-purple: #8456a8;
   --color-blue: #68AAE8;
   --color-light-blue: #94cbff;
   --color-white: #F2F2F2;
@@ -136,10 +137,25 @@ a:hover {
   text-decoration: underline;
 }
 
+.link-button {
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: 3px;
+  color: var(--color-black);
+  display: inline-block       ;
+  font: bold 14px 'Raleway', Arial, sans-serif;
+  margin: .5rem 0;
+  padding: .5rem 1.5rem;
+}
+
+.link-button:hover {
+  text-decoration: none;
+}
+
 button {
   background-color: var(--color-blue);
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   color: var(--color-black);
   cursor: pointer;
   font: bold 14px 'Raleway', Arial, sans-serif;
@@ -444,7 +460,7 @@ main {
 }
 
 .login-signup input {
-  border-radius: 5px;
+  border-radius: 3px;
   display: block;
   margin-bottom: 1rem;
   padding: .5rem;
@@ -471,6 +487,64 @@ main {
 
 .error-message li {
   margin-left: 1rem;
+}
+
+/* Account Page */
+
+.account-page {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: .5rem;
+}
+
+.account-details {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.account-details img {
+  border-radius: 50%;
+  margin-right: .5rem;
+  width: 120px;
+}
+
+.account-clubs h2 {
+  border-bottom: 3px solid var(--color-white);
+}
+
+.club-card {
+  background-color: var(--color-black);
+  border-radius: 3px;
+  color: var(--color-white);
+  display: flex;
+  margin: .5rem;
+}
+
+.club-card:hover {
+  text-decoration: none;
+}
+
+.club-card img {
+  border-radius: 3px;
+  width: 100px;
+}
+
+.club-card div {
+  padding: .5rem;
+}
+
+.club-card h3 {
+  color: var(--color-light-purple);
+}
+
+.club-card div p {
+  margin: .5rem 0;
+}
+
+.club-card span {
+  font-weight: 700;
 }
 
 /* ****************************************
@@ -575,5 +649,16 @@ MEDIA QUERY 800PX+
 
   #tmdb-attr p {
     max-width: 250px;
+  }
+
+  /* Account page */
+
+  .clubs {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .club-card {
+    width: 360px;
   }
 }
