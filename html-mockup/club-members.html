@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Movie Club</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preload" href="/fonts/raleway-v26-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/raleway-v26-latin-900.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
   <body>
@@ -29,28 +29,38 @@
             <li id="nav-account-link"><a href="account.html">
               <img src="images/user/2021-12-11-justin-headshot-250x250.webp" alt="User profile picture" height="250" width="250" loading=“lazy” decoding=“async”>Username
             </a></li>
+            <li><a href="logout.html">Logout</a></li>
           </ul>
         </nav>
       </header>
       <main>
-        <div class="forms">
-          <h2>Login</h2>
-          <div class="error-message">
-            <ul>
-              <li>No account was found with that email</li>
-              <li>Incorrect password</li>
-            </ul>
-          </div>
-          <form action="#" method="post">
-            <label for="email">Email</label>
-            <input type="text" placeholder="Email" name="email" required>
+        <div class="club-members-page">
+          <h2>Club Members</h2>
+          <form class="forms" action="" method="post">
+            <label for="add-member">Add Members</label>
+            <input type="text" name="add-member" placeholder="User Email">
 
-            <label for="password">Password</label>
-            <input type="password" placeholder="Password" name="password" required>
-
-            <button type="submit">Login</button>
+            <button type="submit">Add Member</button>
           </form>
-          <p>Don't have an account? <a href="signup.html">Sign Up!</a></p>
+
+          <div class="members">
+            <div class="member-card">
+              <img src="images/user/2021-12-11-justin-headshot-250x250.webp" alt="User profile picture" height="250" width="250" loading=“lazy” decoding=“async”>
+              <p>Usernamethatislong</p>
+            </div>
+            <div class="member-card">
+              <img src="images/user/2021-12-11-justin-headshot-250x250.webp" alt="User profile picture" height="250" width="250" loading=“lazy” decoding=“async”>
+              <p>Username</p>
+            </div>
+            <div class="member-card">
+              <img src="images/user/2021-12-11-justin-headshot-250x250.webp" alt="User profile picture" height="250" width="250" loading=“lazy” decoding=“async”>
+              <p>Username</p>
+            </div>
+            <div class="member-card">
+              <img src="images/user/2021-12-11-justin-headshot-250x250.webp" alt="User profile picture" height="250" width="250" loading=“lazy” decoding=“async”>
+              <p>Username</p>
+            </div>
+          </div>
         </div>
       </main>
       <footer>

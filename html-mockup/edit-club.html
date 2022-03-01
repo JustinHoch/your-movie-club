@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Movie Club</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preload" href="/fonts/raleway-v26-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/raleway-v26-latin-900.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
   <body>
@@ -34,23 +34,17 @@
       </header>
       <main>
         <div class="forms">
-          <h2>Login</h2>
-          <div class="error-message">
-            <ul>
-              <li>No account was found with that email</li>
-              <li>Incorrect password</li>
-            </ul>
-          </div>
-          <form action="#" method="post">
-            <label for="email">Email</label>
-            <input type="text" placeholder="Email" name="email" required>
+          <h2>Edit Movie Club</h2>
+          <form action="" method="post">
+            <label for="club-name">Movie Club Name</label>
+            <input type="text" name="club-name" id="club-name" required>
 
-            <label for="password">Password</label>
-            <input type="password" placeholder="Password" name="password" required>
+            <label for="club-description">Movie Club Description</label>
+            <textarea name="club-description" id="club-description" cols="30" rows="10"></textarea>
 
-            <button type="submit">Login</button>
+            <button type="submit">Update Club</button>
           </form>
-          <p>Don't have an account? <a href="signup.html">Sign Up!</a></p>
+          <a href="delete-club.html" class="link-button-delete">Delete Movie Club</a>
         </div>
       </main>
       <footer>

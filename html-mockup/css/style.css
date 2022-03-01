@@ -89,7 +89,7 @@ VARIABLES
   --color-orange: #FB6107;
   --color-green: #679436;
   --color-red: #720E07;
-  --color-bright-red: #D10E00;
+  --color-bright-red: #d31a0c;
   --color-yellow: #F5F749;
 }
 
@@ -152,6 +152,21 @@ a:hover {
   text-decoration: none;
 }
 
+.link-button-delete {
+  background-color: var(--color-bright-red);
+  border: none;
+  border-radius: 3px;
+  color: var(--color-white);
+  display: inline-block       ;
+  font: bold 14px 'Raleway', Arial, sans-serif;
+  margin: 4rem 0 1rem;
+  padding: .5rem 1.5rem;
+}
+
+.link-button-delete:hover {
+  text-decoration: none;
+}
+
 button {
   background-color: var(--color-blue);
   border: none;
@@ -159,11 +174,24 @@ button {
   color: var(--color-black);
   cursor: pointer;
   font: bold 14px 'Raleway', Arial, sans-serif;
+  margin-bottom: 1rem;
   padding: .5rem 1.5rem;
   text-decoration: none;
 }
 
-input {
+.delete-button {
+  background-color: var(--color-bright-red);
+  border: none;
+  border-radius: 3px;
+  color: var(--color-black);
+  cursor: pointer;
+  font: bold 14px 'Raleway', Arial, sans-serif;
+  margin-bottom: 1rem;
+  padding: .5rem 1.5rem;
+  text-decoration: none;
+}
+
+input, textarea {
   font: 14px 'Raleway', Arial, sans-serif;
 }
 
@@ -442,24 +470,29 @@ main {
   text-decoration: none;
 }
 
-/* Login and Signup page */
+/* Forms */
 
-.login-signup {
+.forms {
   margin: 0 auto;
   padding: 1rem;
-  max-width: 350px;
+  max-width: 400px;
 }
 
-.login-signup h2 {
+.forms h2 {
   margin-bottom: 1rem;
 }
 
-.login-signup label {
+.forms h3 {
+  margin-bottom: .5rem;
+}
+
+.forms label {
   display: block;
   margin: .5rem 0;
 }
 
-.login-signup input {
+.forms input, .forms textarea {
+  background-color: var(--color-white);
   border-radius: 3px;
   display: block;
   margin-bottom: 1rem;
@@ -467,8 +500,37 @@ main {
   width: 100%;
 }
 
-.login-signup p {
+.forms p {
   margin: 1rem 0;
+}
+
+#avatar {
+  margin-bottom: 1rem;
+}
+
+#avatar .avatar-radio {
+  display: inline;
+}
+
+.avatar-radio [type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.avatar-radio [type=radio] + img {
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  margin: .25rem;
+  padding: .25rem;
+  width: 90px;
+}
+
+.avatar-radio [type=radio]:checked + img {
+  border: 5px solid var(--color-blue);
+  padding: 0;
 }
 
 /* Error Message */
@@ -545,6 +607,301 @@ main {
 
 .club-card span {
   font-weight: 700;
+}
+
+/* Movie Page */
+
+.movie-page {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: .5rem;
+}
+
+.movie-details {
+  /* display: flex;
+  flex-wrap: wrap; */
+  margin: 0 auto;
+  /* max-width: 600px; */
+}
+
+.movie-details img {
+  border-radius: 3px;
+  max-width: 300px;
+}
+
+.movie-details div {
+  max-width: 450px;
+}
+
+.movie-details div h2 {
+  margin: 1rem 0 .5rem;
+}
+
+.movie-details form {
+  margin: 1rem 0;
+}
+
+.movie-details form label {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.movie-details form select {
+  background-color: var(--color-white);
+  border-radius: 3px;
+  display: block;
+  font: 14px 'Raleway', Arial, sans-serif;
+  margin-bottom: .5rem;
+  padding: .4rem;
+}
+
+.movie-details form option {
+  background-color: var(--color-white);
+  padding: .5rem;
+}
+
+.watch-providers h2 {
+  margin: 1rem 0 .5rem;
+}
+
+.watch-type h3 {
+  margin: .5rem 0;
+}
+
+.provider-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wp-card {
+  margin: .25rem;
+  text-align: center;
+  max-width: 75px;
+}
+
+.wp-card img {
+  border-radius: 15px;
+  width: 50px;
+}
+
+.movie-cast h2 {
+  margin: 1rem 0 .5rem;
+}
+
+.cast-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cast-card {
+  margin-right: .5rem;
+  width: 140px;
+}
+
+.cast-card img {
+  border-radius: 3px;
+}
+
+.cast-card p {
+  margin-bottom: .5rem;
+}
+
+/* Club Page */
+
+.club-page {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: .5rem;
+}
+
+.club-page h2, .club-page p {
+  margin-bottom: 1rem;
+}
+
+.club-page p {
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+
+.club-page h3, .club-page h4 {
+  margin-bottom: .5rem;
+}
+
+.club-details {
+  border-bottom: 3px solid var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.current-movie-details {
+  display: flex;
+}
+
+.current-movie-details div {
+  margin: 0 .5rem;
+}
+
+.current-movie-details img {
+  border-radius: 3px;
+  max-width: 200px;
+  min-width: 100px;
+  /* width: 100px; */
+}
+
+.current-movie-details p {
+  max-width: 550px;
+}
+
+.club-links {
+  margin-bottom: .5rem;
+  min-width: 148px;
+}
+
+.discussion form textarea {
+  background-color: var(--color-white);
+  border-radius: 3px;
+  display: block;
+  height: 100px;
+  margin-bottom: .5rem;
+  max-width: 800px;
+  padding: .5rem;
+  resize: none;
+  width: 100%;
+}
+
+.comment {
+  background-color: var(--color-black);
+  border-radius: 3px;
+  padding: .5rem;
+}
+
+.comments {
+  max-width: 800px;
+}
+
+.comment-user {
+  align-items: center;
+  display: flex;
+  margin-bottom: .5rem;
+}
+
+.comment-user img {
+  border-radius: 50%;
+  width: 30px;
+}
+
+.comment-user p {
+  margin: 0 .5rem;
+}
+
+/* Movie Queue */
+
+.movie-queue-page {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: .5rem;
+}
+
+.movie-queue-page h2, .movie-queue-page h3, .movie-queue-page p {
+  margin-bottom: 1rem;
+}
+
+.movie-queue {
+  counter-reset: list-number 1;
+}
+
+.queue-card {
+  color: var(--color-white);
+  display: flex;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.queue-card:hover {
+  text-decoration: none;
+}
+
+.queue-card img {
+  border-radius: 3px;
+  margin-right: .5rem;
+  width: 75px;
+}
+
+.queue-card .link-button-delete {
+  margin: 0;
+}
+
+.queue-card-number::before {
+  align-items: center;
+  background-color: var(--color-black);
+  border-radius: 50%;
+  color: var(--color-white);
+  content: counter(list-number);
+  counter-increment: list-number;
+  display: inline-flex;
+  font-size: 18px;
+  height: 40px;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 40px;
+}
+
+/* Club Members */
+
+.club-members-page {
+  padding: .5rem;
+}
+
+.club-members-page .forms {
+  margin: 0;
+  padding: 0;
+}
+
+.member-card {
+  align-items: center;
+  background-color: var(--color-black);
+  border-radius: 3px;
+  display: flex;
+  margin: .5rem;
+  /* max-width: 300px; */
+  padding: .5rem;
+}
+
+.member-card img {
+  border-radius: 50%;
+  margin-right: .5rem;
+  width: 75px;
+}
+
+/* Search Page */
+
+.search-page {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: .5rem;
+}
+
+.search-page .forms {
+  margin: 0;
+  padding: 0;
+}
+
+.search-return {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.search-card {
+  margin: 0 1rem 1rem 0;
+  max-width: 150px;
+}
+
+.search-card img {
+  border-radius: 3px;
+  width: 150px;
 }
 
 /* ****************************************
@@ -660,5 +1017,30 @@ MEDIA QUERY 800PX+
 
   .club-card {
     width: 360px;
+  }
+
+  /* Movie Page */
+
+  .movie-details {
+    display: flex;
+    max-width: 100%;
+  }
+
+  .movie-details div {
+    margin-left: 1rem;
+  }
+
+  .club-details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .members {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .search-return {
+    justify-content: flex-start;
   }
 }
