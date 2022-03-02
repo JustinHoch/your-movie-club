@@ -20,7 +20,7 @@ $trending_movies_day = apiTrendingMoviesDay();
   <h2>Welcome to Your Movie Club!</h2>
   <p>Here you can create movie clubs to connect with friends and family and discuss your favorite movies.</p>
   <p>Sign Up today to create your own personal movie club!</p>
-  <a class="signup-link" href="signup.html" name="Sign up">Sign Up</a>
+  <a class="signup-link" href="signup.php" name="Sign up">Sign Up</a>
 </section>
 
 <section class="about-blurb">
@@ -69,3 +69,10 @@ $trending_movies_day = apiTrendingMoviesDay();
     <?php } ?>
   </div>
 </section>
+
+<?php
+
+// Footer
+include(SHARED_PATH . '/footer.php');
+
+?>

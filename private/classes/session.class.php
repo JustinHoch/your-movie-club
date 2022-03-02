@@ -2,7 +2,7 @@
 
 class Session {
 
-  private $user_id;
+  public $user_id;
   public $username;
   public $user_level;
   public $avatar_path;
@@ -19,7 +19,7 @@ class Session {
     if($user) {
       // prevent session fixation attacks
       session_regenerate_id();
-      $this->user_id = $_SESSION['admin_id'] = $user->id;
+      $this->user_id = $_SESSION['user_id'] = $user->id;
       $this->username = $_SESSION['username'] = $user->username;
       $this->user_level = $_SESSION['user_level'] = $user->user_level;
       $this->avatar_path = $_SESSION['avatar_path'] = $user->avatar_path;
@@ -29,7 +29,6 @@ class Session {
   }
 
   public function is_logged_in() {
-    // return isset($this->admin_id);
     return isset($this->user_id) && $this->last_login_is_recent();
   }
 
@@ -49,10 +48,11 @@ class Session {
 
   private function check_stored_login() {
     if(isset($_SESSION['user_id'])) {
-      $this->admin_id = $_SESSION['user_id'];
+      $this->user_id = $_SESSION['user_id'];
       $this->username = $_SESSION['username'];
       $this->user_level = $_SESSION['user_level'];
       $this->last_login = $_SESSION['last_login'];
+      $this->avatar_path = $_SESSION['avatar_path'];
     }
   }
 

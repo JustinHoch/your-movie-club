@@ -3,7 +3,7 @@
 class User extends DatabaseObject {
 
   static protected $table_name = "users";
-  static protected $db_columns = ['id', 'username', 'email', 'password', 'user_level', 'avatar_path'];
+  static protected $db_columns = ['id', 'username', 'email', 'password', 'date_created', 'user_level', 'avatar_path'];
 
   public $id;
   public $username;
@@ -12,6 +12,7 @@ class User extends DatabaseObject {
   public $unhashed_password;
   public $confirm_password;
   protected $password_required = true;
+  public $date_created;
   public $user_level;
   public $avatar_path;
 
@@ -21,6 +22,8 @@ class User extends DatabaseObject {
     $this->user_level = $args['user_level'] ?? 1;
     $this->unhashed_password = $args['unhashed_password'] ?? '';
     $this->confirm_password = $args['confirm_password'] ?? '';
+    $this->date_created = $args['date_created'] ?? date('Y-m-d');
+    $this->avatar_path = $args['avatar_path'] ?? 'blue-cat.webp';
   }
 
   protected function set_hashed_password() {
@@ -75,7 +78,7 @@ class User extends DatabaseObject {
     
       if(is_blank($this->confirm_password)) {
         $this->errors[] = "Confirm password cannot be blank.";
-      } elseif ($this->password !== $this->confirm_password) {
+      } elseif ($this->unhashed_password !== $this->confirm_password) {
         $this->errors[] = "Password and confirm password must match.";
       }
     }

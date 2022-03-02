@@ -29,17 +29,17 @@
           </label>
           <ul class="menu">
             <li><a href="./">Home</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">SignUp</a></li>
-
             <?php if($session->is_logged_in()) { ?>
-            <li id="nav-account-link">
-              <a href="account.html">
-                <img src="images/user/<?php echo $session->avatar_path ?>" alt="User profile picture" height="250" width="250" loading=“lazy” decoding=“async”>
-                <?php echo $session->username ?>
-              </a>
-            </li>
-            <li><a href="logout.html">Logout</a></li>
+              <li id="nav-account-link">
+                <a href="account.php">
+                  <img src="/images/user/<?php echo h($session->avatar_path) ?>" alt="User profile picture" height="250" width="250" loading=“lazy” decoding=“async”>
+                  <?php echo $session->username ?>
+                </a>
+              </li>
+              <li><a href="logout.php">Logout</a></li>
+            <?php } else { ?>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="signup.php">SignUp</a></li>
             <?php } ?>
           </ul>
         </nav>
