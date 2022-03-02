@@ -5,6 +5,7 @@ class Session {
   private $user_id;
   public $username;
   public $user_level;
+  public $avatar_path;
   private $last_login;
 
   public const MAX_LOGIN_AGE = 60*60*24; // 1 day in seconds
@@ -21,6 +22,7 @@ class Session {
       $this->user_id = $_SESSION['admin_id'] = $user->id;
       $this->username = $_SESSION['username'] = $user->username;
       $this->user_level = $_SESSION['user_level'] = $user->user_level;
+      $this->avatar_path = $_SESSION['avatar_path'] = $user->avatar_path;
       $this->last_login = $_SESSION['last_login'] = time();
     }
     return true;
@@ -36,10 +38,12 @@ class Session {
     unset($_SESSION['username']);
     unset($_SESSION['user_level']);
     unset($_SESSION['last_login']);
+    unset($_SESSION['avatar_path']);
     unset($this->user_id);
     unset($this->username);
     unset($this->user_level);
     unset($this->last_login);
+    unset($this->avatar_path);
     return true;
   }
 
