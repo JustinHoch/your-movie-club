@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $new_user = User::find_by_email($user->email);
     $session->login($new_user);
     $session->message('Thanks for signing up!');
-    redirect_to('./');
+    redirect_to('account.php');
   } else {
     // show errors: the rest of the page will load and show the errors above the Form
   }

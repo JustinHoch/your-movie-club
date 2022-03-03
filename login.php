@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($user != false && $user->verify_password($password)) {
       // Mark admin as logged in
       $session->login($user);
-      redirect_to('./');
+      redirect_to('account.php');
     } else {
       // username not found or password does not match
       $errors[] = "Log in was unsuccessful.";
