@@ -56,7 +56,7 @@ class User extends DatabaseObject {
     if(is_blank($this->email)) {
       $this->errors[] = "Email cannot be blank.";
     } elseif (!has_length($this->email, array('max' => 255))) {
-      $this->errors[] = "Last name must be less than 255 characters.";
+      $this->errors[] = "Email must be less than 255 characters.";
     } elseif (!has_valid_email_format($this->email)) {
       $this->errors[] = "Email must be a valid format.";
     }
@@ -100,6 +100,17 @@ class User extends DatabaseObject {
   static public function find_by_email($email) {
     $sql = "SELECT * FROM " . static::$table_name . " ";
     $sql .= "WHERE email=" . self::$database->quote($email);
+    $object_array = static::find_by_sql($sql);
+    if(!empty($object_array)) {
+        return array_shift($object_array);
+    }   else    {
+        return false;
+    }
+  }
+
+  static public function find_all_user_clubs($id) {
+    $sql = "SELECT * FROM movie_clubs ";
+    $sql .= "WHERE club_owner_id=" . self::$database->quote($id);
     $object_array = static::find_by_sql($sql);
     if(!empty($object_array)) {
         return array_shift($object_array);
