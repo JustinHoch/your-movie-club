@@ -1,6 +1,8 @@
 <?php
   if(!isset($page_title)) {
-    $page_title = 'Home';
+    $page_title = 'Your Movie Club';
+  } else {
+    $page_title .= ' - Your Movie Club';
   }
 ?>
 
@@ -10,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Movie Club - <?php echo h($page_title); ?></title>
+    <title><?php echo h($page_title); ?></title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>

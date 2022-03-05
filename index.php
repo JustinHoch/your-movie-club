@@ -3,9 +3,6 @@
 // Initialize
 require_once('./private/initialize.php');
 
-// Page Title
-$page_title = "Home";
-
 // Header
 include(SHARED_PATH . '/header.php');
 
