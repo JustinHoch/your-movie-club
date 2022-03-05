@@ -59,6 +59,8 @@ class User extends DatabaseObject {
       $this->errors[] = "Email must be less than 255 characters.";
     } elseif (!has_valid_email_format($this->email)) {
       $this->errors[] = "Email must be a valid format.";
+    } elseif (!has_unique_email($this->email, $this->id ?? 0)) {
+      $this->errors[] = "An account with that email already exists.";
     }
   
     if(is_blank($this->username)) {

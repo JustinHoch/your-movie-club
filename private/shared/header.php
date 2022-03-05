@@ -18,7 +18,7 @@
     <div class="wrapper">
       <header>
         <nav>
-          <a href="" class="logo-a" name="Home">
+          <a href="./" class="logo-a" name="Home">
             <img src="images/logo/logo.png" alt="Your Movie Club Logo" height="150" width="150" loading=“lazy” decoding=“async”>
           </a>
           <h1>Your Movie Club</h1>
