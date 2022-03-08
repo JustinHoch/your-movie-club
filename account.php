@@ -14,7 +14,7 @@ if(!$session->is_logged_in()) {
 }
 
 // Page Title
-$page_title = "Home";
+$page_title = "Account";
 
 // Header
 include(SHARED_PATH . '/header.php');

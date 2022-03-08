@@ -31,6 +31,8 @@
           </label>
           <ul class="menu">
             <li><a href="./">Home</a></li>
+            <li><a href="search.php">Search</a></li>
+            <li><a href="discover.php">Discover</a></li>
             <?php if($session->is_logged_in()) { ?>
               <li id="nav-account-link">
                 <a href="account.php">
