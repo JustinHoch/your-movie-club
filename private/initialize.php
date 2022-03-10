@@ -21,14 +21,21 @@
   require_once('db_credentials.php');
   require_once('db_connection.php');
   require_once('validation_functions.php');
+
+  // Include Classes
+  include('classes/databaseobject.class.php');
+  include('classes/user.class.php');
+  include('classes/session.class.php');
+  include('classes/movieclub.class.php');
+  include('classes/clubmovie.class.php');
   
   // Autoload class definitions
-  function my_autoload($class) {
-    if ( preg_match('/\A\w+\Z/', $class) ) {
-      include 'classes/' . $class . '.class.php';
-    }
-  }
-  spl_autoload_register('my_autoload');
+  // function my_autoload($class) {
+  //   if ( preg_match('/\A\w+\Z/', $class) ) {
+  //     include 'classes/' . $class . '.class.php';
+  //   }
+  // }
+  // spl_autoload_register('my_autoload');
 
   // Database Connection
   $database = db_connect();

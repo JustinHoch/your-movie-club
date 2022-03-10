@@ -1,11 +1,7 @@
 <?php
 
 function withApi($url) {
-  $curl = curl_init($url);
-  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-  $response = curl_exec($curl);
-  curl_close($curl);
-
+  $response = file_get_contents($url);
   return(json_decode($response));
 }
 
