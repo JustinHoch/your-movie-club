@@ -42,16 +42,16 @@ include(SHARED_PATH . '/header.php');
   <h2>Sign Up</h2>
   <form action="./signup" method="post">
     <label for="email">Email</label>
-    <input type="text" placeholder="Email" name="user[email]" value="<?php echo h($user->email); ?>" required>
+    <input type="text" id="email" placeholder="Email" name="user[email]" value="<?php echo h($user->email); ?>" required>
 
     <label for="username">Username</label>
-    <input type="text" placeholder="Username" name="user[username]" value="<?php echo h($user->username); ?>" required>
+    <input type="text" id="username" placeholder="Username" name="user[username]" value="<?php echo h($user->username); ?>" required>
 
     <label for="password">Password</label>
-    <input type="password" placeholder="password" name="user[unhashed_password]" value="<?php echo h($user->unhashed_password); ?>" required>
+    <input type="password" id="password" placeholder="password" name="user[unhashed_password]" value="<?php echo h($user->unhashed_password); ?>" required>
 
     <label for="confirm-password">Confirm Password</label>
-    <input type="password" placeholder="retype password" name="user[confirm_password]" value="<?php echo h($user->confirm_password); ?>" required>
+    <input type="password" id="confirm-password" placeholder="retype password" name="user[confirm_password]" value="<?php echo h($user->confirm_password); ?>" required>
 
     <button type="submit" value="Sign up">Sign Up</button>
   </form>
