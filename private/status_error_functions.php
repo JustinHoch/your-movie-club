@@ -13,7 +13,7 @@ function display_errors($errors=array()) {
   $output = '';
   if(!empty($errors)) {
     $output .= "<div class=\"error-message\">";
-    $output .= "<p>Please fix the following errors:</p>";
+    $output .= "<h2>Please fix the following errors:</h2>";
     $output .= "<ul>";
     foreach($errors as $error) {
       $output .= "<li>" . h($error) . "</li>";

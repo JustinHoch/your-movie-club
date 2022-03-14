@@ -544,7 +544,7 @@ main {
   padding: .5rem;
 }
 
-.error-message p {
+.error-message h2 {
   font-size: 1.25rem;
   margin: .5rem 0 1rem;
 }
