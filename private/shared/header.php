@@ -30,7 +30,6 @@
             <div class='menu-button'></div>
           </label>
           <ul class="menu">
-            <li><a href="./">Home</a></li>
             <li><a href="search.php">Search</a></li>
             <li><a href="discover.php">Discover</a></li>
             <?php if($session->is_logged_in()) { ?>
