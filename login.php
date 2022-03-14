@@ -24,17 +24,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   if(empty($errors)) {
     $user = User::find_by_email($email);
     // test if user found and password is correct
-    if($user != false && $user->verify_password($password)) {
-      // Mark admin as logged in
+    if($user === false){
+      $errors[] = "No account associated with that email was found.";
+    }elseif(!$user->verify_password($password)){
+      $errors[] = "Incorrect password.";
+    }else{
       $session->login($user);
       redirect_to('account.php');
-    } else {
-      // username not found or password does not match
-      $errors[] = "Log in was unsuccessful.";
     }
-
   }
-
 }
 
 // Page Title
@@ -53,14 +51,14 @@ include(SHARED_PATH . '/header.php');
 
   <form action="./login" method="post">
     <label for="email">Email</label>
-    <input type="text" placeholder="Email" name="email" value="<?php echo h($email); ?>" required>
+    <input type="text" id="email" placeholder="Email" name="email" value="<?php echo h($email); ?>" required>
 
     <label for="password">Password</label>
-    <input type="password" placeholder="Password" name="password" value="" required>
+    <input type="password" id="password" placeholder="Password" name="password" value="" required>
 
     <button type="submit">Login</button>
   </form>
-  <p>Don't have an account? <a href="signup.html">Sign Up!</a></p>
+  <p>Don't have an account? <a href="signup.php">Sign Up!</a></p>
 </div>
 
 <?php
