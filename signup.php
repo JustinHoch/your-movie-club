@@ -40,7 +40,7 @@ include(SHARED_PATH . '/header.php');
    <?php echo display_errors($user->errors); ?>
 
   <h2>Sign Up</h2>
-  <form action="./signup" method="post">
+  <form action="/signup" method="post">
     <label for="email">Email</label>
     <input type="text" id="email" placeholder="Email" name="user[email]" value="<?php echo h($user->email); ?>" required>
 

@@ -22,6 +22,7 @@ include(SHARED_PATH . '/header.php');
 ?>
 
 <div class="account-page">
+  <h2>Account</h2>
 
   <!-- Display Session Message if there is one -->
   <?php echo display_session_message(); ?>

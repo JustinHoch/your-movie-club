@@ -3,6 +3,7 @@
 class Session {
 
   public $user_id;
+  public $email;
   public $username;
   public $user_level;
   public $avatar_path;
@@ -20,6 +21,7 @@ class Session {
       // prevent session fixation attacks
       session_regenerate_id();
       $this->user_id = $_SESSION['user_id'] = $user->id;
+      $this->email = $_SESSION['email'] = $user->email;
       $this->username = $_SESSION['username'] = $user->username;
       $this->user_level = $_SESSION['user_level'] = $user->user_level;
       $this->avatar_path = $_SESSION['avatar_path'] = $user->avatar_path;
@@ -42,11 +44,13 @@ class Session {
 
   public function logout() {
     unset($_SESSION['user_id']);
+    unset($_SESSION['email']);
     unset($_SESSION['username']);
     unset($_SESSION['user_level']);
     unset($_SESSION['last_login']);
     unset($_SESSION['avatar_path']);
     unset($this->user_id);
+    unset($this->email);
     unset($this->username);
     unset($this->user_level);
     unset($this->last_login);
@@ -57,6 +61,7 @@ class Session {
   private function check_stored_login() {
     if(isset($_SESSION['user_id'])) {
       $this->user_id = $_SESSION['user_id'];
+      $this->email = $_SESSION['email'];
       $this->username = $_SESSION['username'];
       $this->user_level = $_SESSION['user_level'];
       $this->last_login = $_SESSION['last_login'];
