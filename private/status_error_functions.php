@@ -3,7 +3,17 @@
 function require_login() {
   global $session;
   if(!$session->is_logged_in()) {
-    redirect_to(url_for('login.php'));
+    redirect_to('/login.php');
+  } else {
+    // Do nothing, let the rest of the page proceed
+  }
+}
+
+function require_admin() {
+  global $session;
+  if(!$session->is_admin()) {
+    $session->message('Your account does not have access to admin pages.');
+    redirect_to('/account');
   } else {
     // Do nothing, let the rest of the page proceed
   }

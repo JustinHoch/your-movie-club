@@ -22,6 +22,10 @@ include(SHARED_PATH . '/header.php');
 ?>
 
 <div class="account-page">
+
+  <!-- Display Session Message if there is one -->
+  <?php echo display_session_message(); ?>
+
   <section class="account-details">
     <img src="/images/user/<?php echo h($user->avatar_path) ?>" alt="User profile picture" height="250" width="250" loading=“lazy” decoding=“async”>
     <div>
