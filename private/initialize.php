@@ -28,6 +28,7 @@
   include('classes/session.class.php');
   include('classes/movieclub.class.php');
   include('classes/clubmovie.class.php');
+  include('classes/comment.class.php');
   
   // Autoload class definitions
   // function my_autoload($class) {

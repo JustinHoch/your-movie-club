@@ -46,7 +46,7 @@ include(SHARED_PATH . '/header.php');
         $club_movie = ClubMovie::find_current_movie($club->id);
         $movie = apiMovie($club_movie->api_movie_id);
       ?>
-      <a href="club.php?=<?php echo h($club->id) ?>" class="club-card">
+      <a href="club.php?id=<?php echo h($club->id) ?>" class="club-card">
         <img src="https://image.tmdb.org/t/p/w154<?php echo h($movie->poster_path) ?>" alt="movie poster" height="231" width="154" loading=“lazy” decoding=“async>
         <div>
           <h3><?php echo h($club->club_name) ?></h3>

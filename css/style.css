@@ -559,16 +559,19 @@ main {
 
 /* Session Message */
 
-.session-message {
+#session-message {
   border: 5px solid var(--color-light-purple);
   border-radius: 3px;
+  margin-bottom: .5rem;
   padding: 1rem;
   text-align: center;
 }
 
-.session-message p {
+#session-message > p {
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: 0;
+  max-width: 100%;
 }
 
 /* Account Page */
@@ -793,6 +796,7 @@ main {
 .comment {
   background-color: var(--color-black);
   border-radius: 3px;
+  margin-bottom: .5rem;
   padding: .5rem;
 }
 
