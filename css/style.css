@@ -557,6 +557,20 @@ main {
   margin: .5rem 0;
 }
 
+/* Session Message */
+
+.session-message {
+  border: 5px solid var(--color-light-purple);
+  border-radius: 3px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.session-message p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 /* Account Page */
 
 .account-page {
