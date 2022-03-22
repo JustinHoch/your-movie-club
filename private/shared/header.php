@@ -35,11 +35,10 @@
             <?php if($session->is_logged_in()) { ?>
               <li id="nav-account-link">
                 <a href="/account">
-                  <img src="/images/user/<?php echo h($session->avatar_path) ?>" alt="User profile picture" height="250" width="250" loading=“lazy” decoding=“async”>
-                  <?php echo $session->username ?>
+                  Account
                 </a>
               </li>
-              <li><a href="/logout">Logout</a></li>
+              <li><a href="/logout">Logout <?php echo $session->username ?></a></li>
             <?php } else { ?>
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">SignUp</a></li>

@@ -313,6 +313,7 @@ nav h1 {
   width: 100%;
   color: var(--color-white);
   background-color: var(--color-black);
+  text-align: center;
 }
 
 .menu  li:not(:last-child) {
@@ -1006,12 +1007,24 @@ MEDIA QUERY 800PX+
     border-bottom: none;
   }
 
+  .menu li:last-child {
+    padding: .5rem;
+  }
+
+  .menu li:last-child a {
+    padding: 0;
+  }
+
   #menu-toggle ~ .menu {
     display: flex;
   }
 
   #menu-toggle:checked ~ .menu {
     display: flex;
+  }
+
+  #nav-account-link {
+    border-right: 2px solid var(--color-white);
   }
 
   #footer-container {
