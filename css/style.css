@@ -876,12 +876,18 @@ main {
 /* Club Members */
 
 .club-members-page {
+  margin: 0 auto;
+  max-width: 1200px;
   padding: .5rem;
 }
 
 .club-members-page .forms {
   margin: 0;
   padding: 0;
+}
+
+.club-members-page .forms label {
+  font-weight: bold;
 }
 
 .member-card {
@@ -894,10 +900,18 @@ main {
   padding: .5rem;
 }
 
+.member-card:first-child {
+  margin-left: 0;
+}
+
 .member-card img {
   border-radius: 50%;
   margin-right: .5rem;
   width: 75px;
+}
+
+.member-name {
+  font-weight: bold;
 }
 
 /* Search Page */
