@@ -832,14 +832,33 @@ main {
   margin-bottom: 1rem;
 }
 
+.current-queue-card {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.current-queue-card a img {
+  border-radius: 3px;
+  margin-right: 1rem;
+  width: 150px;
+}
+
 .movie-queue {
   counter-reset: list-number 1;
 }
 
+.movie-queue > div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem 1rem;
+}
+
 .queue-card {
+  border-radius: 3px;
   color: var(--color-white);
   display: flex;
-  margin-bottom: 1rem;
+  padding: .5rem;
   position: relative;
 }
 
@@ -859,13 +878,14 @@ main {
 
 .queue-card-number::before {
   align-items: center;
-  background-color: var(--color-black);
+  background-color: var(--color-white);
   border-radius: 50%;
-  color: var(--color-white);
+  color: var(--color-black);
   content: counter(list-number);
   counter-increment: list-number;
   display: inline-flex;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
   height: 40px;
   justify-content: center;
   margin-bottom: 10px;
@@ -1093,5 +1113,16 @@ MEDIA QUERY 800PX+
 
   .search-return {
     justify-content: flex-start;
+  }
+
+  /* Movie Queue Page */
+  .movie-queue > div {
+    flex-direction: row;
+    /* justify-content: space-between; */
+  }
+  
+  .queue-card {
+    background-color: var(--color-black);
+    display: flex;
   }
 }

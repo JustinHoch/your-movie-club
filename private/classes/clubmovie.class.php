@@ -34,6 +34,18 @@ class ClubMovie extends DatabaseObject {
     }
   }
 
+  static public function find_coming_up_movies($movie_club_id) {
+    $sql = "SELECT * FROM " . static::$table_name . " ";
+    $sql .= "WHERE movie_club_id=" . self::$database->quote($movie_club_id) . " ";
+    $sql .= "AND NOT queue_number=1";
+    $object_array = static::find_by_sql($sql);
+    if(!empty($object_array)) {
+        return $object_array;
+    }   else    {
+        return false;
+    }
+  }
+
 }
 
 ?>
