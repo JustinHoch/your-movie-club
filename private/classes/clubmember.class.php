@@ -29,6 +29,29 @@ class ClubMember extends DatabaseObject {
     }
   }
 
+  static public function find_all_members_by_user_id($user_id) {
+    $sql = "SELECT * FROM " . static::$table_name . " ";
+    $sql .= "WHERE user_id=" . self::$database->quote($user_id);
+    $object_array = static::find_by_sql($sql);
+    if(!empty($object_array)) {
+        return $object_array;
+    }   else    {
+        return false;
+    }
+  }
+
+  static public function member_check($user_id, $movie_club_id) {
+    $sql = "SELECT * FROM " . static::$table_name . " ";
+    $sql .= "WHERE user_id=" . self::$database->quote($user_id);
+    $sql .= "AND movie_club_id=" . self::$database->quote($movie_club_id);
+    $object_array = static::find_by_sql($sql);
+    if(!empty($object_array)) {
+        return $object_array;
+    }   else    {
+        return false;
+    }
+  }
+
 }
 
 ?>

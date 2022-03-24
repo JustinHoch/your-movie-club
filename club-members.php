@@ -28,19 +28,25 @@ if(is_post_request()){
   // Get email
   $member_email = $_POST['add-member']['email'];
   // Check if email is associated with an account
-  $member_check = User::find_by_email($member_email);
-  if($member_check == false){
+  $email_check = User::find_by_email($member_email);
+  if($email_check == false){
     $errors[] = 'No account was found for ' . $member_email;
   } else {
-    // Gather New Member data
-    $_POST['add-member']['user_id'] = $member_check->id;
-    $_POST['add-member']['movie_club_id'] = $id;
-    $args = $_POST['add-member'];
-    $new_member = new ClubMember($args);
-    $result = $new_member->save();
-    if($result === true){
-      $session->message('Member Added!');
-      redirect_to('/club-members?id=' . $id);
+    // Check if user is already a member
+    $member_check = ClubMember::member_check($email_check->id, $id);
+    if($member_check !== false){
+      $errors[] = 'That account is already a member of this club';
+    }else{
+      // Gather New Member data
+      $_POST['add-member']['user_id'] = $email_check->id;
+      $_POST['add-member']['movie_club_id'] = $id;
+      $args = $_POST['add-member'];
+      $new_member = new ClubMember($args);
+      $result = $new_member->save();
+      if($result === true){
+        $session->message('Member Added!');
+        redirect_to('/club-members?id=' . $id);
+      }
     }
   }
 }
