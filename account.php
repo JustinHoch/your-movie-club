@@ -32,7 +32,7 @@ include(SHARED_PATH . '/header.php');
     <div>
       <h2><?php echo h($user->username) ?></h2>
       <p><?php echo h($user->email) ?></p>
-      <p>Member since: <?php echo h($user->date_created) ?></p>
+      <p>Member since: <?php echo h(get_date_format($user->date_created)) ?></p>
       <a href="edit-account.php" class="link-button">Edit Account</a>
     </div>
   </section>

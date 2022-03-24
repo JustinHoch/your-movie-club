@@ -85,7 +85,7 @@ include(SHARED_PATH . '/header.php');
         <img src="/images/user/<?php echo h($member_details->avatar_path); ?>" alt="<?php echo h($member_details->username); ?> profile picture" height="250" width="250" loading=“lazy” decoding=“async”>
         <div>
           <p class="member-name"><?php echo h($member_details->username); ?></p>
-          <p>Since: <?php echo h($member->date_joined); ?></p>
+          <p>Since: <?php echo h(get_date_format($member->date_joined)); ?></p>
         </div>
       </div>
     <?php } ?>

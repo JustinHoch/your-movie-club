@@ -95,7 +95,7 @@ include(SHARED_PATH . '/header.php');
             <img src="/images/user/<?php echo h($comment_user->avatar_path) ?>" alt="<?php echo h($comment_user->username) ?> profile picture" height="250" width="250" loading=“lazy” decoding=“async”>
             <div>
               <p><?php echo h($comment_user->username) ?></p>
-              <p><?php echo h($comment->date_created) ?></p>
+              <p><?php echo h(get_date_format($comment->date_created)) ?></p>
             </div>
           </div>
           <p><?php echo h($comment->comment_text) ?></p>

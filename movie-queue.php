@@ -49,7 +49,7 @@ include(SHARED_PATH . '/header.php');
       <div>
         <h4><?php echo h($current_movie_details->title); ?></h4>
         <span><?php echo h($certification); ?></span>
-        <p><?php echo h($current_movie_details->release_date); ?></p>
+        <p><?php echo h(get_year_format($current_movie_details->release_date)); ?></p>
       </div>
     </div>
   </div>
@@ -69,7 +69,7 @@ include(SHARED_PATH . '/header.php');
             <div>
               <h4><?php echo h($movie_details->title); ?></h4>
               <span><?php echo h($certification); ?></span>
-              <p><?php echo h($movie_details->release_date); ?></p>
+              <p><?php echo h(get_year_format($movie_details->release_date)); ?></p>
               <!-- <form action="" method="post">
                 <button class="delete-button" type="submit" name="remove-movie" value="club-movie-id">Remove</button>
               </form> -->

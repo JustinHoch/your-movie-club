@@ -43,4 +43,14 @@ function is_get_request() {
   return $_SERVER['REQUEST_METHOD'] == 'GET';
 }
 
+function get_date_format($date_string) {
+  $date = date_create($date_string);
+  return date_format($date, 'M j, Y');
+}
+
+function get_year_format($date_string) {
+  $date = date_create($date_string);
+  return date_format($date, 'Y');
+}
+
 ?>
