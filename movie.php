@@ -100,7 +100,7 @@ include(SHARED_PATH . '/header.php');
     <div class="cast-container">
       <?php foreach($cast as $actor){ ?>
       <div class="cast-card">
-        <img src="<?php echo h(checkActorimage($actor->profile_path)); ?>" alt="<?php echo h($actor->name); ?> headshot" height="513" width="342" loading=“lazy” decoding=“async>
+        <img src="<?php echo h(apiCheckImage($actor->profile_path)); ?>" alt="<?php echo h($actor->name); ?> headshot" height="513" width="342" loading=“lazy” decoding=“async>
         <h3><?php echo h($actor->name); ?></h3>
         <p><?php echo h($actor->character); ?></p>
       </div>

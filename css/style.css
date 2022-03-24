@@ -1116,6 +1116,7 @@ MEDIA QUERY 800PX+
   }
 
   /* Movie Queue Page */
+  
   .movie-queue > div {
     flex-direction: row;
     /* justify-content: space-between; */

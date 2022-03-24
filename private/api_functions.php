@@ -63,7 +63,7 @@ function getGenres($genres) {
   return $genre_string;
 }
 
-function checkActorImage($image_path) {
+function apiCheckImage($image_path) {
   if($image_path == ""){
     return "/images/tmdb/missing-image.webp";
   }else{
