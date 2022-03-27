@@ -93,7 +93,7 @@ include(SHARED_PATH . '/header.php');
 
     <button type="submit">Update Account</button>
   </form>
-  <a href="delete-account.html" class="link-button-delete">Delete Account</a>
+  <a href="/delete-account" class="link-button-delete">Delete Account</a>
 </div>
 
 <?php
