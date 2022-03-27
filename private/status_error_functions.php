@@ -19,6 +19,13 @@ function require_admin() {
   }
 }
 
+function require_club_member($user_id, $club_id) {
+  $check = ClubMember::member_check($user_id, $club_id);
+  if($check === false){
+    redirect_to('/account');
+  }
+}
+
 function display_errors($errors=array()) {
   $output = '';
   if(!empty($errors)) {
