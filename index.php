@@ -13,12 +13,21 @@ $trending_movies_day = apiTrendingMoviesDay();
 
 ?>
 
-<section class="main-cta">
-  <h2>Welcome to Your Movie Club!</h2>
-  <p>Here you can create movie clubs to connect with friends and family and discuss your favorite movies.</p>
-  <p>Sign Up today to create your own personal movie club!</p>
-  <a class="signup-link" href="signup.php" name="Sign up">Sign Up</a>
-</section>
+<?php if($session->is_logged_in()) { ?>
+  <section class="main-cta">
+    <h2>Welcome <?php echo $session->username ?></h2>
+    <p>Here you can create movie clubs to connect with friends and family and discuss your favorite movies.</p>
+    <p>Go to your account page to view and create movie clubs.</p>
+    <a class="signup-link" href="/account" name="Go To Account">Go To Account</a>
+  </section>
+<?php }else{ ?>
+  <section class="main-cta">
+    <h2>Welcome to Your Movie Club!</h2>
+    <p>Here you can create movie clubs to connect with friends and family and discuss your favorite movies.</p>
+    <p>Sign Up today to create your own personal movie club!</p>
+    <a class="signup-link" href="signup.php" name="Sign up">Sign Up</a>
+  </section>
+<?php } ?>
 
 <section class="about-blurb">
   <h2>The Best Place to Discuss Your Favorite Movies</h2>
