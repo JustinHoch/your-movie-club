@@ -41,7 +41,7 @@ include(SHARED_PATH . '/header.php');
       <?php if($certification){ ?>
       <p><?php echo h($certification); ?></p>
       <?php } ?>
-      <P><?php echo h(get_year_format($movie_details->release_date)); ?></P>
+      <p><?php echo h(get_year_format($movie_details->release_date)); ?></p>
       <p><?php echo h($genres); ?></p>
       <p><?php echo h($movie_details->runtime); ?> minutes</p>
       <h2>Overview</h2>

@@ -70,6 +70,7 @@ include(SHARED_PATH . '/header.php');
       </a>
       <div>
         <h4><?php echo h($current_movie_details->title) ?></h4>
+        <p><?php echo h(get_year_format($current_movie_details->release_date)); ?></p>
         <p><?php echo h($current_movie_details->overview) ?></p>
       </div>
     </div><!--End current-movie-details-->
@@ -109,7 +110,7 @@ include(SHARED_PATH . '/header.php');
       <?php } ?>
 
     </div>
-  </div>
+  </div><!--End discussion-->
 </div><!--End Club-page-->
 
 <?php

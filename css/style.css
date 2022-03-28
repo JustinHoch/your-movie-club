@@ -756,6 +756,12 @@ main {
 .club-details {
   border-bottom: 3px solid var(--color-white);
   margin-bottom: 1rem;
+  padding-bottom: .5rem;
+}
+
+.club-details .link-button {
+  text-align: center;
+  width: 150px;
 }
 
 .current-movie-details {
@@ -910,18 +916,18 @@ main {
   font-weight: bold;
 }
 
+.members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1rem;
+}
+
 .member-card {
   align-items: center;
   background-color: var(--color-black);
   border-radius: 3px;
   display: flex;
-  margin: .5rem;
-  /* max-width: 300px; */
   padding: .5rem;
-}
-
-.member-card:first-child {
-  margin-left: 0;
 }
 
 .member-card img {
