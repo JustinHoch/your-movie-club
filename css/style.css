@@ -332,7 +332,7 @@ nav h1 {
   text-decoration: underline;
 }
 
-#nav-account-link a {
+.nav-link a {
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -340,7 +340,7 @@ nav h1 {
   padding: .5rem;
 }
 
-#nav-account-link img {
+.nav-link img {
   border-radius: 50%;
   height: 45px;
   margin-right: .5rem;
@@ -1045,14 +1045,6 @@ MEDIA QUERY 800PX+
 
   .menu li:not(:last-child) {
     border-bottom: none;
-  }
-
-  .menu li:last-child {
-    padding: .5rem;
-  }
-
-  .menu li:last-child a {
-    padding: 0;
   }
 
   #menu-toggle ~ .menu {

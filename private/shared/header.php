@@ -30,18 +30,18 @@
             <div class='menu-button'></div>
           </label>
           <ul class="menu">
-            <li><a href="/search">Search</a></li>
-            <li><a href="/discover">Discover</a></li>
+            <li class="nav-link"><a href="/search">Search</a></li>
+            <li class="nav-link"><a href="/discover">Discover</a></li>
             <?php if($session->is_logged_in()) { ?>
-              <li id="nav-account-link">
+              <li class="nav-link" id="nav-account-link">
                 <a href="/account">
                   Account
                 </a>
               </li>
-              <li><a href="/logout">Logout <?php echo $session->username ?></a></li>
+              <li class="nav-link" id="nav-logout"><a href="/logout">Logout <?php echo $session->username ?></a></li>
             <?php } else { ?>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">SignUp</a></li>
+            <li class="nav-link"><a href="/login">Login</a></li>
+            <li class="nav-link"><a href="/signup">SignUp</a></li>
             <?php } ?>
           </ul>
         </nav>
