@@ -47,12 +47,12 @@ include(SHARED_PATH . '/header.php');
     <h3>Current Movie</h3>
     <div class="current-queue-card">
       <a href="/movie?id=<?php echo h($current_movie_details->id); ?>">
-        <img src="https://image.tmdb.org/t/p/w342<?php echo h($current_movie_details->poster_path); ?>" alt="<?php echo h($current_movie_details->title); ?> movie poster" height="513" width="342" loading=“lazy” decoding=“async>
+        <img src="<?php echo h(apiCheckImage($current_movie_details->poster_path)); ?>" alt="<?php echo h($current_movie_details->title); ?> movie poster" height="513" width="342" loading=“lazy” decoding=“async>
       </a>
       <div>
         <h4><?php echo h($current_movie_details->title); ?></h4>
         <span><?php echo h($certification); ?></span>
-        <p><?php echo h(get_year_format($current_movie_details->release_date)); ?></p>
+        <p><?php echo h(get_year_format($current_movie_details->release_date ?? '')); ?></p>
       </div>
     </div>
   </div>
@@ -67,12 +67,12 @@ include(SHARED_PATH . '/header.php');
         ?>
           <div class="queue-card queue-card-number">
             <a href="/movie?id=<?php echo h($movie_details->id); ?>">
-              <img src="https://image.tmdb.org/t/p/w342<?php echo h($movie_details->poster_path); ?>" alt="<?php echo h($movie_details->title); ?> movie poster" height="513" width="342" loading=“lazy” decoding=“async>
+              <img src="<?php echo h(apiCheckImage($movie_details->poster_path)); ?>" alt="<?php echo h($movie_details->title); ?> movie poster" height="513" width="342" loading=“lazy” decoding=“async>
             </a>
             <div>
               <h4><?php echo h($movie_details->title); ?></h4>
               <span><?php echo h($certification); ?></span>
-              <p><?php echo h(get_year_format($movie_details->release_date)); ?></p>
+              <p><?php echo h(get_year_format($movie_details->release_date ?? '')); ?></p>
               <!-- <form action="" method="post">
                 <button class="delete-button" type="submit" name="remove-movie" value="club-movie-id">Remove</button>
               </form> -->

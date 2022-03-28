@@ -35,13 +35,13 @@ include(SHARED_PATH . '/header.php');
 
 <div class="movie-page">
   <div class="movie-details">
-    <img src="https://image.tmdb.org/t/p/w780<?php echo h($movie_details->poster_path); ?>" alt="movie poster" height="513" width="342" loading=“lazy” decoding=“async>
+    <img src="<?php echo h(apiCheckImage($movie_details->poster_path)); ?>" alt="movie poster" height="513" width="342" loading=“lazy” decoding=“async>
     <div>
       <h2><?php echo h($movie_details->title); ?></h2>
       <?php if($certification){ ?>
       <p><?php echo h($certification); ?></p>
       <?php } ?>
-      <p><?php echo h(get_year_format($movie_details->release_date)); ?></p>
+      <p><?php echo h(get_year_format($movie_details->release_date ?? '')); ?></p>
       <p><?php echo h($genres); ?></p>
       <p><?php echo h($movie_details->runtime); ?> minutes</p>
       <h2>Overview</h2>

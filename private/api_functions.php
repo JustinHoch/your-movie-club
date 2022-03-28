@@ -41,7 +41,7 @@ function getCerts($movie_certs) {
       $us_cert[] = $cert->release_dates;
     }
   }
-  if($us_cert[0]){
+  if(isset($us_cert[0])){
     foreach($us_cert[0] as $item){
       if($item->certification !== ""){
         $certifications[] = $item->certification;
