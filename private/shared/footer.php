@@ -2,7 +2,7 @@
       <footer>
         <div id="footer-container">
           <div id="ymc-attr">
-            <h2>The Movie Club</h2>
+            <h2>Your Movie Club</h2>
             <p>Created by <a href="https://www.jhochschild.dev" name="jhochschild.dev">Justin Hochschild</a></p>
           </div>
           <div id="tmdb-attr">
