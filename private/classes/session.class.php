@@ -35,11 +35,11 @@ class Session {
   }
 
   public function is_admin() {
-    $this->user_level == 2 || $this->user_level == 3 ? true : false;
+    return $this->user_level == 2 || $this->user_level == 3 ? true : false;
   }
 
   public function is_super_admin() {
-    $this->user_level == 3 ? true : false;
+    return $this->user_level == 3 ? true : false;
   }
 
   public function logout() {

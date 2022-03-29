@@ -969,6 +969,19 @@ main {
   width: 150px;
 }
 
+/* 404 Page */
+.error-page {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: .5rem;
+  text-align: center;
+}
+
+.error-page h2 {
+  font-size: 48px;
+  margin-bottom: 2rem;
+}
+
 /* ****************************************
 FOOTER
 **************************************** */
