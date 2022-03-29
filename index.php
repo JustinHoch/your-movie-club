@@ -13,6 +13,9 @@ $trending_movies_day = apiTrendingMoviesDay();
 
 ?>
 
+<!-- Display Session Message -->
+<?php echo display_session_message(); ?>
+
 <?php if($session->is_logged_in()) { ?>
   <section class="main-cta">
     <h2>Welcome <?php echo $session->username ?></h2>
