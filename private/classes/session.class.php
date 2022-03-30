@@ -9,11 +9,21 @@ class Session {
   public $avatar_path;
   private $last_login;
 
+  public const USER_LEVEL_NAME = [
+    1 => "Member",
+    2 => "Admin",
+    3 => "Super Admin"
+  ];
+
   public const MAX_LOGIN_AGE = 60*60*24; // 1 day in seconds
 
   public function __construct() {
     session_start();
     $this->check_stored_login();
+  }
+
+  public function get_level_name() {
+    return self::USER_LEVEL_NAME[$this->user_level];
   }
 
   public function login($user) {

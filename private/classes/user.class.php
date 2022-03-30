@@ -16,6 +16,12 @@ class User extends DatabaseObject {
   public $user_level;
   public $avatar_path;
 
+  public const USER_LEVEL_NAME = [
+    1 => "Member",
+    2 => "Admin",
+    3 => "Super Admin"
+  ];
+
   public function __construct($args=[]) {
     $this->username = $args['username'] ?? '';
     $this->email = $args['email'] ?? '';
@@ -24,6 +30,10 @@ class User extends DatabaseObject {
     $this->confirm_password = $args['confirm_password'] ?? '';
     $this->date_created = $args['date_created'] ?? date('Y-m-d');
     $this->avatar_path = $args['avatar_path'] ?? 'blue-cat.webp';
+  }
+
+  public function get_level_name() {
+    return self::USER_LEVEL_NAME[$this->user_level];
   }
 
   protected function set_hashed_password() {

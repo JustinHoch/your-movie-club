@@ -33,10 +33,13 @@
             <li class="nav-link"><a href="/search">Search</a></li>
             <li class="nav-link"><a href="/discover">Discover</a></li>
             <?php if($session->is_logged_in()) { ?>
+              <?php if($session->is_admin()){ ?>
+                <li class="nav-link">
+                  <a href="/admin">Admin</a>
+                </li>
+              <?php } ?>
               <li class="nav-link" id="nav-account-link">
-                <a href="/account">
-                  Account
-                </a>
+                <a href="/account">Account</a>
               </li>
               <li class="nav-link" id="nav-logout"><a href="/logout">Logout <?php echo $session->username ?></a></li>
             <?php } else { ?>
