@@ -23,8 +23,8 @@ if($user == false){
   redirect_to('/admin');
 }
 
-// Redirect if user is a Super Admin
-if($user->user_level == 3 && $session->user_level !== 3){
+// Redirect if user is a Super Admin and the logged in user is NOT a Super Admin
+if($user->user_level == 3 && $session->user_level != 3){
   redirect_to('/admin');
 }
 
