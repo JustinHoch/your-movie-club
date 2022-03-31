@@ -34,7 +34,7 @@ include(SHARED_PATH . '/admin-header.php');
   <div class="user-list">
 
   <?php foreach($users as $user){
-    if($user->user_level == 3 && $session->user_level !== 3){
+    if($user->user_level == 3 && $session->user_level != 3){
       continue;
     }  
   ?>
