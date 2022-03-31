@@ -14,6 +14,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // if all went well, use session to login with the new admin, add a session message, and redirect to index.php
   if($result === true) {
     $new_user = User::find_by_email($user->email);
+    // Add new user to default movie club
+    $new_member_args = [];
+    $new_member_args['user_id'] = $new_user->id;
+    $new_member_args['movie_club_id'] = 1;
+    $new_member = new ClubMember($new_member_args);
+    $new_member->save();
     $session->login($new_user);
     $session->message('Thanks for signing up!');
     redirect_to('account.php');
