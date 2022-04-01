@@ -826,6 +826,15 @@ main {
   margin: 0 .5rem;
 }
 
+/* Create Club */
+.create-club label {
+  font-weight: bold;
+}
+
+.create-club p {
+  margin: .5rem 0;
+}
+
 /* Movie Queue */
 
 .movie-queue-page {

@@ -16,6 +16,7 @@ class MovieClub extends DatabaseObject {
     $this->club_name = $args['club_name'] ?? '';
     $this->club_owner_id = $args['club_owner_id'] ?? '';
     $this->date_created = $args['date_created'] ?? date('Y-m-d');
+    $this->description = $args['description'] ?? '';
     $this->avatar_path = $args['avatar_path'] ?? '';
   }
 

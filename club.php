@@ -65,15 +65,19 @@ include(SHARED_PATH . '/header.php');
   <h3>Current Movie</h3>
   <div class="club-details">
     <div class="current-movie-details">
-      <a href="/movie?id=<?php echo h($current_movie_details->id) ?>">
-        <img src="<?php echo h(apiCheckImage($current_movie_details->poster_path)); ?>" alt="<?php echo h($current_movie_details->title) ?> poster" height="513" width="342" loading=“lazy” decoding=“async>
-      </a>
-      <div>
-        <h4><?php echo h($current_movie_details->title) ?></h4>
-        <p><?php echo h(get_year_format($current_movie_details->release_date ?? '')); ?></p>
-        <p><?php echo h($current_movie_details->overview) ?></p>
-      </div>
-    </div><!--End current-movie-details-->
+        <?php if($current_movie != false){ ?>
+        <a href="/movie?id=<?php echo h($current_movie_details->id) ?>">
+          <img src="<?php echo h(apiCheckImage($current_movie_details->poster_path)); ?>" alt="<?php echo h($current_movie_details->title) ?> poster" height="513" width="342" loading=“lazy” decoding=“async>
+        </a>
+        <div>
+          <h4><?php echo h($current_movie_details->title) ?></h4>
+          <p><?php echo h(get_year_format($current_movie_details->release_date ?? '')); ?></p>
+          <p><?php echo h($current_movie_details->overview) ?></p>
+        </div>
+        <?php }else{ ?>
+        <h4>There are currently no movies in your Movie Queue. You can add movies by <a href="/search">searching</a>.</h4>
+        <?php } ?>
+      </div><!--End current-movie-details-->
     <div class="club-links">
       <ul>
         <li><a href="/movie-queue?id=<?php echo h($movie_club->id) ?>" class="link-button">Movie Queue</a></li>
