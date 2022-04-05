@@ -764,11 +764,11 @@ main {
   width: 150px;
 }
 
-.current-movie-details {
+.current-movie-details > div {
   display: flex;
 }
 
-.current-movie-details div {
+.current-movie-details div > div {
   margin: 0 .5rem;
 }
 

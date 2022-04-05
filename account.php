@@ -46,16 +46,28 @@ include(SHARED_PATH . '/header.php');
         $club_details = MovieClub::find_by_id($club->movie_club_id);
         $club_owner = User::find_by_id($club_details->club_owner_id);
         $club_movie = ClubMovie::find_current_movie($club_details->id);
-        $movie = apiMovie($club_movie->api_movie_id);
-      ?>
-      <a href="club.php?id=<?php echo h($club_details->id) ?>" class="club-card">
-        <img src="<?php echo h(apiCheckImage($movie->poster_path)); ?>" alt="movie poster" height="231" width="154" loading=“lazy” decoding=“async>
-        <div>
-          <h3><?php echo h($club_details->club_name) ?></h3>
-          <p><span>Current Movie:</span> <?php echo h($movie->title) ?></p>
-          <p><span>Created By:</span> <?php echo h($club_owner->username) ?></p>
-        </div>
-      </a>
+        ?>
+        <?php if($club_movie !== false) { 
+          $movie = apiMovie($club_movie->api_movie_id);
+        ?>
+          <a href="club.php?id=<?php echo h($club_details->id) ?>" class="club-card">
+            <img src="<?php echo h(apiCheckImage($movie->poster_path)); ?>" alt="movie poster" height="231" width="154" loading=“lazy” decoding=“async>
+            <div>
+              <h3><?php echo h($club_details->club_name) ?></h3>
+              <p><span>Current Movie:</span> <?php echo h($movie->title) ?></p>
+              <p><span>Created By:</span> <?php echo h($club_owner->username) ?></p>
+            </div>
+          </a>
+        <?php }else{?>
+          <a href="club.php?id=<?php echo h($club_details->id) ?>" class="club-card">
+            <img src="/images/tmdb/missing-image.webp" alt="missing image" height="513" width="342" loading=“lazy” decoding=“async>
+            <div>
+              <h3><?php echo h($club_details->club_name) ?></h3>
+              <p>No Current Movie</p>
+              <p><span>Created By:</span> <?php echo h($club_owner->username) ?></p>
+            </div>
+          </a>
+        <?php } // end else?>
       <?php } // end for each?>
     <?php } // end if?>
     

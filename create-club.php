@@ -6,6 +6,13 @@ require_once('./private/initialize.php');
 // Require user to be logged in
 require_login();
 
+// Check how many clubs the user has
+$clubs = MovieClub::find_by_owner_id($session->user_id);
+if(count($clubs) == 5){
+  $session->message('Sorry! You cannot create more than 5 clubs.');
+  redirect_to('/account');
+}
+
 // Process Form
 if(is_post_request()){
   $args = $_POST['club'];
