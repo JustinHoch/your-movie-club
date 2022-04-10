@@ -48,6 +48,10 @@ if(is_post_request() && $user_clubs != false){
         redirect_to('/movie?id=' . $movie_id);
       }
     }
+    if(count($movie_queue) == 10){
+      $session->message('' . $movie_club->club_name . ' has reached the maximum amount of movies allowed in the queue.');
+      redirect_to('/movie?id=' . $movie_id);
+    }
   }
   // Check if user is the owner of the club
   if($movie_club->club_owner_id == $session->user_id){

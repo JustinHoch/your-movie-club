@@ -917,7 +917,7 @@ main {
 }
 
 .queue-card button {
-  color: var(--color-white);
+  color: var(--color-black);
   margin: 0;
 }
 
