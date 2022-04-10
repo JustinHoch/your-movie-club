@@ -25,10 +25,31 @@ if($movie_club == false){
 $current_movie = ClubMovie::find_current_movie($id);
 
 // Get Coming Up Movies
-$coming_up_movies = ClubMovie::find_coming_up_movies($id);
+$coming_up_movies = ClubMovie::find_all_unwatched_movies($id);
 
 // Page Title
 $page_title = "Movie Queue";
+
+// Form processing
+if(is_post_request()){
+  // Remove movie from queue
+  if($session->user_id == $movie_club->club_owner_id && isset($_POST['remove-movie'])){
+    $club_movie = ClubMovie::find_by_id($_POST['remove-movie']);
+    $club_movie->delete();
+    $session->message('Queue updated!');
+    redirect_to('/movie-queue?id=' . $id);
+  }
+  // Go to next movie in queue
+  if($session->user_id == $movie_club->club_owner_id && isset($_POST['next-movie'])){
+    $club_movie = ClubMovie::find_by_id($_POST['next-movie']);
+    $club_movie->watched_status = 1;
+    $result = $club_movie->save();
+    if($result){
+      $session->message('Queue updated!');
+      redirect_to('/movie-queue?id=' . $id);
+    }
+  }
+}
 
 // Header
 include(SHARED_PATH . '/header.php');
@@ -36,6 +57,10 @@ include(SHARED_PATH . '/header.php');
 ?>
 
 <div class="movie-queue-page">
+
+  <!-- Display Session Message if there is one -->
+  <?php echo display_session_message(); ?>
+
   <h2><a href="/club?id=<?php echo h($movie_club->id); ?>"><?php echo h($movie_club->club_name); ?></a> Movie Queue</h2>
   <p>You can add movies to your club queue by searching or exploring movies.</p>
 
@@ -53,6 +78,11 @@ include(SHARED_PATH . '/header.php');
         <h4><?php echo h($current_movie_details->title); ?></h4>
         <span><?php echo h($certification); ?></span>
         <p><?php echo h(get_year_format($current_movie_details->release_date ?? '')); ?></p>
+        <?php if($session->user_id == $movie_club->club_owner_id){ ?>
+          <form action="/movie-queue?id=<?php echo h($id); ?>" method="post">
+            <button class="link-button" type="submit" name="next-movie" value="<?php echo h($current_movie->id); ?>">Next Movie</button>
+          </form>
+        <?php } ?>
       </div>
     </div>
   </div>
@@ -61,7 +91,7 @@ include(SHARED_PATH . '/header.php');
 
     <div>
       <?php if($coming_up_movies !== false){ ?>
-        <?php foreach($coming_up_movies as $movie){ 
+        <?php foreach(array_slice($coming_up_movies, 1) as $movie){ 
           $movie_details = apiMovie($movie->api_movie_id);
           $certification = getCerts($movie_details->release_dates);
         ?>
@@ -73,9 +103,11 @@ include(SHARED_PATH . '/header.php');
               <h4><?php echo h($movie_details->title); ?></h4>
               <span><?php echo h($certification); ?></span>
               <p><?php echo h(get_year_format($movie_details->release_date ?? '')); ?></p>
-              <!-- <form action="" method="post">
-                <button class="delete-button" type="submit" name="remove-movie" value="club-movie-id">Remove</button>
-              </form> -->
+              <?php if($session->user_id == $movie_club->club_owner_id){ ?>
+                <form action="/movie-queue?id=<?php echo h($id); ?>" method="post">
+                  <button class="delete-button" type="submit" name="remove-movie" value="<?php echo h($movie->id); ?>">Remove From Queue</button>
+                </form>
+              <?php } ?>
             </div>
           </div>
         <?php } ?>
