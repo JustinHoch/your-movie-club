@@ -31,6 +31,22 @@ function apiMovieSearch($query) {
   return withApi($url);
 }
 
+function apiAllWatchProviders() {
+  $url = "https://api.themoviedb.org/3/watch/providers/movie?api_key=" . API_KEY . "&language=en-US&watch_region=US";
+  $wp_list = withApi($url);
+  return $wp_list;
+}
+
+function apiAllGenres() {
+  $url = "https://api.themoviedb.org/3/genre/movie/list?api_key=" . API_KEY . "&language=en-US";
+  return withApi($url);
+}
+
+function apiDiscover($search_string) {
+  $url = "https://api.themoviedb.org/3/discover/movie?api_key=" . API_KEY . "&language=en-US" . $search_string;
+  return withApi($url);
+}
+
 // TODO: needs revision
 function getCerts($movie_certs) {
   $certs = $movie_certs->results;

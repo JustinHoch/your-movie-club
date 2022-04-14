@@ -1078,6 +1078,28 @@ main {
   text-align: center;
 }
 
+/* Discover Page */
+.discover-page {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: .5rem;
+}
+
+.discover-page h2 {
+  margin-bottom: .5rem;
+  text-align: center;
+}
+
+#discover-sort label {
+  font-size: 16px;
+  font-weight: bold;
+  padding: .25rem;
+}
+
+#discover-sort select {
+  padding: .25rem;
+}
+
 /* ****************************************
 FOOTER
 **************************************** */
