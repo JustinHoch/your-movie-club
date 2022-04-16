@@ -12,7 +12,6 @@ $genres = apiAllGenres();
 
 // Process Form
 if(is_post_request()){
-  print_r($_POST);
   $url_string = "?sort_by=" . $_POST['sort_by'];
   if(isset($_POST['genre'])){
     $url_string .= "&with_genres=";
@@ -33,30 +32,46 @@ if(is_post_request()){
 }
 
 // GET url parameters
-$search_string = "?sort_by=";
+$search_string = "&sort_by=";
 $sort_by = "";
 $in_genres = [];
 $in_watch_providers = [];
+$page = "1";
+$search_string_no_page = "?sort_by=";
 
 if(isset($_GET['sort_by'])){
   $sort_by = $_GET['sort_by'];
   $search_string .= $_GET['sort_by'];
+  $search_string_no_page .= $_GET['sort_by'];
 }else{
   $search_string .= "popularity.desc";
+  $search_string_no_page .= "popularity.desc";
 }
 
 if(isset($_GET['with_genres'])){
   $in_genres = explode(",", $_GET['with_genres']);
   $search_string .= "&with_genres=" . $_GET['with_genres'];
+  $search_string_no_page .= "&with_genres=" . $_GET['with_genres'];
 }
 
 if(isset($_GET['with_watch_providers'])){
   $in_watch_providers = explode(",", $_GET['with_watch_providers']);
-  $search_string .= "&with_watch_providers=" . $_GET['with_watch_providers'];
+  $search_string .= "&with_watch_providers=" . $_GET['with_watch_providers'] . "&watch_region=US";
+  $search_string_no_page .= "&with_watch_providers=" . $_GET['with_watch_providers'] . "&watch_region=US";
+}
+
+if(isset($_GET['page'])){
+  $page = $_GET['page'];
+  $search_string .= "&page=" . $_GET['page'];
 }
 
 // Get movies
 $movies = apiDiscover($search_string);
+
+// include js files as needed
+$js_files = [
+  'dropdown-menu.js'
+];
 
 // Page Title
 $page_title = "Discover";
@@ -69,9 +84,9 @@ include(SHARED_PATH . '/header.php');
 <div class="discover-page">
   <h2>Discover Movies</h2>
   <div class="form">
-    <form action="/discover" method="post">
+    <form action="/discover" method="post" id="discover-form">
       <div id="discover-sort">
-        <label for="sort_by">Sort</label>
+        <label for="sort_by">Sort:</label>
         <select name="sort_by" id="sort_by">
           <option value="popularity.desc" <?php if($sort_by == 'popularity.desc'){ echo 'selected'; }; ?>>Popularity Descending</option>
           <option value="popularity.asc" <?php if($sort_by == 'popularity.asc'){ echo 'selected'; }; ?>>Popularity Ascending</option>
@@ -80,20 +95,37 @@ include(SHARED_PATH . '/header.php');
         </select>
       </div>
 
-      <div id="discover-genre">
-        <?php foreach($genres->genres as $genre){ ?>
-          <input type="checkbox" name="genre[<?php echo h($genre->name); ?>]" id="<?php echo h($genre->name); ?>" value="<?php echo h($genre->id); ?>" <?php if(in_array($genre->id, $in_genres)){ echo 'checked'; } ?>>
-          <label for="<?php echo h($genre->name); ?>"><?php echo h($genre->name); ?></label>
-        <?php } ?>
+      <div id="discover-genre" class="dropdown">
+        <div tabindex="0" class="dropbtn" onclick="dropdownMenu('genre-list')">
+          <p>Genres</p>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <div id="genre-list" class="dropdown-content">
+          <?php foreach($genres->genres as $genre){ ?>
+            <div class="genre-checkbox">
+              <input type="checkbox" name="genre[<?php echo h($genre->name); ?>]" id="<?php echo h($genre->name); ?>" value="<?php echo h($genre->id); ?>" <?php if(in_array($genre->id, $in_genres)){ echo 'checked'; } ?>>
+              <label for="<?php echo h($genre->name); ?>"><?php echo h($genre->name); ?></label>
+            </div>
+          <?php } ?>
+        </div>
       </div>
 
-      <div id="discover-watch-providers">
-        <?php foreach($watch_providers->results as $provider){
-          if($provider->provider_id != 119){
-        ?>
-          <input type="checkbox" name="watch_provider[<?php echo h($provider->provider_name); ?>]" id="<?php echo h($provider->provider_id); ?>" value="<?php echo h($provider->provider_id); ?>" <?php if(in_array($provider->provider_id, $in_watch_providers)){ echo 'checked'; } ?>>
-          <label for="<?php echo h($provider->provider_id); ?>"><?php echo h($provider->provider_name); ?></label>
-        <?php }} ?>
+      <div id="discover-watch-providers" class="dropdown">
+        <div tabindex="0" class="dropbtn" onclick="dropdownMenu('provider-list')">
+          <p>Watch Providers</p>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <!-- <button class="dropbtn" type="button" onclick="dropdownMenu('provider-list')">Watch Providers</button> -->
+        <div id="provider-list" class="dropdown-content">
+          <?php foreach($watch_providers->results as $provider){
+            if($provider->provider_id != 119){
+          ?>
+            <div class="provider-checkbox">
+              <input type="checkbox" name="watch_provider[<?php echo h($provider->provider_name); ?>]" id="<?php echo h($provider->provider_id); ?>" value="<?php echo h($provider->provider_id); ?>" <?php if(in_array($provider->provider_id, $in_watch_providers)){ echo 'checked'; } ?>>
+              <label for="<?php echo h($provider->provider_id); ?>"><?php echo h($provider->provider_name); ?></label>
+            </div>
+          <?php }} ?>
+        </div>
       </div>
 
       <button type="submit">Search</button>
@@ -115,6 +147,21 @@ include(SHARED_PATH . '/header.php');
     <p>No results were found!</p>
   <?php } ?>
   </div>
+
+  <?php if(!empty($movies->results)){ ?>
+    <?php if($movies->total_pages > 1){ ?>
+      <div class="discover-pagination">
+        <?php if($page > 1){ ?>
+          <a href="/discover<?php echo h($search_string_no_page) . "&page=" . $page - 1 ?>">Previous Page</a>
+        <?php } ?>
+        <p>Page <?php echo h($page) ?> of <?php echo h($movies->total_pages) ?></p>
+        <?php if($page < $movies->total_pages){ ?>
+          <a href="/discover<?php echo h($search_string_no_page) . "&page=" . $page + 1 ?>">Next Page</a>
+        <?php } ?>
+      </div>
+  <?php
+    }
+  } ?>
 </div>
 
 <?php

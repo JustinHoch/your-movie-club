@@ -43,7 +43,7 @@ $trending_movies_day = apiTrendingMoviesDay();
     <?php foreach($trending_movies->results as $movie) { ?>
     <div class="movie-card">
       <a href="movie.php?id=<?php echo h($movie->id); ?>">
-        <img src="https://image.tmdb.org/t/p/w342<?php echo h($movie->poster_path); ?>" alt="<?php echo h($movie->title); ?> poster" height="513" width="342" loading=“lazy” decoding=“async>
+        <img src="<?php echo h(apiCheckImage($movie->poster_path)); ?>" alt="<?php echo h($movie->title); ?> poster" height="513" width="342" loading=“lazy” decoding=“async>
         <p><?php echo h($movie->title); ?></p>
       </a>
     </div>
@@ -57,7 +57,7 @@ $trending_movies_day = apiTrendingMoviesDay();
     <?php foreach($trending_movies_week->results as $movie) { ?>
     <div class="movie-card">
       <a href="movie.php?id=<?php echo h($movie->id); ?>">
-        <img src="https://image.tmdb.org/t/p/w342<?php echo h($movie->poster_path); ?>" alt="<?php echo h($movie->title); ?> poster" height="513" width="342" loading=“lazy” decoding=“async>
+        <img src="<?php echo h(apiCheckImage($movie->poster_path)); ?>" alt="<?php echo h($movie->title); ?> poster" height="513" width="342" loading=“lazy” decoding=“async>
         <p><?php echo h($movie->title); ?></p>
       </a>
     </div>
@@ -71,7 +71,7 @@ $trending_movies_day = apiTrendingMoviesDay();
   <?php foreach($trending_movies_day->results as $movie) { ?>
     <div class="movie-card">
       <a href="movie.php?id=<?php echo h($movie->id); ?>">
-        <img src="https://image.tmdb.org/t/p/w342<?php echo h($movie->poster_path); ?>" alt="<?php echo h($movie->title); ?> poster" height="513" width="342" loading=“lazy” decoding=“async>
+        <img src="<?php echo h(apiCheckImage($movie->poster_path)); ?>" alt="<?php echo h($movie->title); ?> poster" height="513" width="342" loading=“lazy” decoding=“async>
         <p><?php echo h($movie->title); ?></p>
       </a>
     </div>

@@ -1,4 +1,5 @@
 <?php
+  // Get page title
   if(!isset($page_title)) {
     $page_title = 'Your Movie Club';
   } else {
@@ -15,6 +16,12 @@
     <title><?php echo h($page_title); ?></title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <?php if(isset($js_files)){
+      foreach($js_files as $file){
+    ?>
+      <script defer src="/js/<?php echo $file ?>"></script>
+    <?php }} ?>
+    <script defer src="https://kit.fontawesome.com/67a3532d66.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="wrapper">

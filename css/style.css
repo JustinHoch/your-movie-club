@@ -306,6 +306,7 @@ nav h1 {
   width: 100%;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .menu  li {
@@ -1090,14 +1091,121 @@ main {
   text-align: center;
 }
 
-#discover-sort label {
+#discover-form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+#discover-form button {
   font-size: 16px;
+}
+
+#discover-sort {
+  display: flex;
+}
+
+#discover-sort label {
+  background-color: var(--color-black);
+  border-radius: 3px 0 0 3px;
   font-weight: bold;
-  padding: .25rem;
+  padding: .5rem;
 }
 
 #discover-sort select {
+  border: 1px solid var(--color-black);
+  border-radius: 0 3px 3px 0;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: 'Raleway', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
   padding: .25rem;
+  width: 100%;
+}
+
+.discover-page .dropdown {
+  position: relative;
+  display: block;
+  z-index: 1;
+}
+
+.discover-page .dropdown-content {
+  display: none;
+  /* position: absolute; */
+  background-color: var(--color-black);
+  border-radius: 0 0 3px 3px;
+  padding: 1rem;
+  width: 100%;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /* z-index: 1; */
+}
+
+.discover-page .show {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem .5rem;
+}
+
+.discover-page .dropbtn {
+  align-items: center;
+  background-color: var(--color-black);
+  border-radius: 3px;
+  color: var(--color-white);
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  padding: .5rem;
+  text-decoration: none;
+}
+
+.dropbtn span {
+  border: solid var(--color-white);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  margin: .25rem;
+  padding: 6px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.discover-page .up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.dropdown-content input {
+  position: absolute;
+  opacity: 0;
+}
+
+.dropdown-content label {
+  border: 2px solid var(--color-blue);
+  border-radius: 20px;
+  padding: .25rem;
+  font-weight: bold;
+}
+
+.dropdown-content input:checked ~ label {
+  color: var(--color-black);
+  background-color: var(--color-blue);
+}
+
+.discover-page .discover-movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  justify-content: center;
+}
+
+.discover-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 18px;
+  gap: .5rem;
+  justify-content: center;
+  margin: 1rem 0;
 }
 
 /* ****************************************
@@ -1221,6 +1329,7 @@ MEDIA QUERY 800PX+
   /* Movie Page */
 
   .movie-details {
+    align-items: flex-start;
     display: flex;
     max-width: 100%;
   }
@@ -1254,5 +1363,35 @@ MEDIA QUERY 800PX+
     background-color: var(--color-black);
     display: flex;
     width: 350px;
+  }
+
+  /* Discover Page */
+  #discover-form {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  #discover-form > div {
+    width: 400px;
+  }
+
+  #discover-form button {
+    margin-bottom: 0;
+  }
+
+  .discover-page .dropbtn {
+    border-radius: 3px;
+    background: var(--color-black);
+  }
+
+  .discover-page .dropdown-content {
+    position: absolute;
+  }
+
+  #provider-list {
+    width: 800px;
+    left: -455px;
   }
 }

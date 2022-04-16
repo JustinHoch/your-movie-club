@@ -25,7 +25,9 @@ if($movie_club == false){
 $movie_queue = ClubMovie::find_all_unwatched_movies($id);
 
 // Get current movie
-$coming_up_movies = array_slice($movie_queue, 1);
+if($movie_queue != false){
+  $coming_up_movies = array_slice($movie_queue, 1);
+}
 
 // Page Title
 $page_title = "Movie Queue";
