@@ -972,24 +972,23 @@ main {
 }
 
 .search-page .forms {
-  margin: 0;
+  margin: 0 0 1rem;
   padding: 0;
 }
 
 .search-return {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
   justify-content: space-around;
 }
 
 .search-card {
-  margin: 0 1rem 1rem 0;
-  max-width: 150px;
+  max-width: 160px;
 }
 
 .search-card img {
   border-radius: 3px;
-  width: 150px;
 }
 
 /* 404 Page */
@@ -1087,7 +1086,7 @@ main {
 }
 
 .discover-page h2 {
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
@@ -1195,8 +1194,8 @@ main {
 .discover-page .discover-movies {
   display: flex;
   flex-wrap: wrap;
-  gap: .5rem;
-  justify-content: center;
+  gap: 1rem;
+  justify-content: space-around;
 }
 
 .discover-pagination {
@@ -1324,6 +1323,33 @@ MEDIA QUERY 800PX+
 
   .club-card {
     width: 360px;
+  }
+
+  /* Search Page */
+
+  .search-card {
+    max-width: 200px;
+  }
+
+  .search-page .forms {
+    max-width: 100%;
+  }
+
+  #search-bar {
+    display: flex;
+  }
+
+  #search-bar label {
+    width: 100%;
+  }
+
+  #search-bar input {
+    border-radius: 3px 0 0 3px;
+    border: none;
+  }
+
+  #search-bar button {
+    border-radius: 0 3px 3px 0;
   }
 
   /* Movie Page */

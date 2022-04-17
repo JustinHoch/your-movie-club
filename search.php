@@ -4,12 +4,13 @@
 require_once('./private/initialize.php');
 
 // Seach Query
-$search_query = '';
-$is_search = false;
+$search_query = "";
 if(isset($_GET['query'])){
   $search_query = $_GET['query'];
-  $is_search = true;
-  $search_results = apiMovieSearch($search_query);
+  $search_results = apiMovieSearch($_GET['query']);
+  $api_results = $search_results->results;
+}else{
+  $search_results = apiTrendingMovies();
   $api_results = $search_results->results;
 }
 
@@ -31,14 +32,17 @@ include(SHARED_PATH . '/header.php');
   <h2>Movie Search</h2>
   <form action="/search" method="post" class="forms">
     <label for="search">Search Movies</label>
-    <input type="text" id="search" name="search" placeholder="Search for movies" value="<?php echo h($search_query) ?>" required>
 
-    <button type="submit">Search</button>
+    <div id="search-bar">
+      <input type="text" id="search" name="search" placeholder="Search for movies" value="<?php echo h($search_query) ?>" required>
+      <button type="submit">Search</button>
+    </div>
+
   </form>
 
   <div class="search-return">
 
-  <?php if($is_search){ ?>
+  <?php if(!empty($api_results)){ ?>
     <?php foreach($api_results as $result){ ?>
       <div class="search-card">
         <a href="/movie?id=<?php echo h($result->id) ?>">
@@ -48,6 +52,8 @@ include(SHARED_PATH . '/header.php');
         <span><?php echo h(get_year_format($result->release_date ?? '')) ?></span>
       </div>
     <?php } ?>
+  <?php }else{ ?>
+    <p>Sorry, no results were found.</p>
   <?php } ?>
 
   </div>
