@@ -70,7 +70,8 @@ $movies = apiDiscover($search_string);
 
 // include js files as needed
 $js_files = [
-  'dropdown-menu.js'
+  '/js/dropdown-menu.js',
+  'https://kit.fontawesome.com/67a3532d66.js'
 ];
 
 // Page Title

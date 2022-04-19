@@ -19,9 +19,8 @@
     <?php if(isset($js_files)){
       foreach($js_files as $file){
     ?>
-      <script defer src="/js/<?php echo $file ?>"></script>
+      <script defer src="<?php echo h($file) ?>"></script>
     <?php }} ?>
-    <script defer src="https://kit.fontawesome.com/67a3532d66.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="wrapper">
