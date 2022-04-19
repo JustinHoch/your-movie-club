@@ -1168,28 +1168,21 @@ main {
   display: flex;
   font-weight: bold;
   justify-content: space-between;
+  margin-bottom: 0;
   padding: .5rem;
   text-decoration: none;
-}
-
-.dropbtn span {
-  border: solid var(--color-white);
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  margin: .25rem;
-  padding: 6px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-
-.discover-page .up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
+  width: 100%;
 }
 
 .dropdown-content input {
   position: absolute;
   opacity: 0;
+}
+
+.dropdown-content input:focus + label {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-black);
 }
 
 .dropdown-content label {

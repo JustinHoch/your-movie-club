@@ -97,10 +97,10 @@ include(SHARED_PATH . '/header.php');
       </div>
 
       <div id="discover-genre" class="dropdown">
-        <div tabindex="0" class="dropbtn" onclick="dropdownMenu('genre-list')">
+        <button type="button" class="dropbtn" onclick="dropdownMenu('genre-list')">
           <p>Genres</p>
-          <i class="fa-solid fa-angle-down"></i>
-        </div>
+          <i class="fa-solid fa-angle-down fa-xs"></i>
+        </button>
         <div id="genre-list" class="dropdown-content">
           <?php foreach($genres->genres as $genre){ ?>
             <div class="genre-checkbox">
@@ -112,10 +112,10 @@ include(SHARED_PATH . '/header.php');
       </div>
 
       <div id="discover-watch-providers" class="dropdown">
-        <div tabindex="0" class="dropbtn" onclick="dropdownMenu('provider-list')">
+        <button type="button" class="dropbtn" onclick="dropdownMenu('provider-list')">
           <p>Watch Providers</p>
-          <i class="fa-solid fa-angle-down"></i>
-        </div>
+          <i class="fa-solid fa-angle-down fa-xs"></i>
+        </button>
         <!-- <button class="dropbtn" type="button" onclick="dropdownMenu('provider-list')">Watch Providers</button> -->
         <div id="provider-list" class="dropdown-content">
           <?php foreach($watch_providers->results as $provider){
