@@ -8,6 +8,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Create record using post parameters
   $args = $_POST['user'];
   $user = new User($args);
+
+  // Test recaptcha response
+  if(!empty($_POST['recaptcha_response'])){
+    // Build POST request:
+    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+    $recaptcha_secret = RECAPTCHA_SECRET_KEY;
+    $recaptcha_response = $_POST['recaptcha_response'];
+
+    // Make and decode POST request:
+    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+    $recaptcha = json_decode($recaptcha);
+
+    // Assign recaptcha score to user
+    $user->recaptcha_score = $recaptcha->score;
+  }
+
   $result = $user->save();
 
   // Test result to see if there were no errors when saving the admin to the database
@@ -31,6 +47,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // If this is not a POST request -> display the form
   $user = new User;
 }
+
+// include js files as needed
+$js_files = [
+  'https://www.google.com/recaptcha/api.js?render=' . RECAPTCHA_SITE_KEY,
+  '/js/recaptcha.js'
+];
 
 // Page Title
 $page_title = "Sign Up";
@@ -60,6 +82,8 @@ include(SHARED_PATH . '/header.php');
     <input type="password" id="confirm-password" placeholder="retype password" name="user[confirm_password]" value="<?php echo h($user->confirm_password); ?>" required>
 
     <button type="submit" value="Sign up">Sign Up</button>
+
+    <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
   </form>
   <p>Already have an account? <a href="login.php">Login</a></p>
 </div>

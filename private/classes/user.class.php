@@ -15,6 +15,7 @@ class User extends DatabaseObject {
   public $date_created;
   public $user_level;
   public $avatar_path;
+  public $recaptcha_score;
 
   public const USER_LEVEL_NAME = [
     1 => "Member",
@@ -93,6 +94,10 @@ class User extends DatabaseObject {
       } elseif ($this->unhashed_password !== $this->confirm_password) {
         $this->errors[] = "Password and confirm password must match.";
       }
+    }
+
+    if($this->recaptcha_score <= 0.5) {
+      $this->errors[] = "Sorry! It looks like you might be a robot. If you are a human, please try again.";
     }
   
     return $this->errors;
