@@ -95,16 +95,15 @@ include(SHARED_PATH . '/header.php');
     <div>
       <?php if($movie_queue !== false){ ?>
         <?php foreach($coming_up_movies as $movie){ 
-          $movie_details = apiMovie($movie->api_movie_id);
-          $certification = getCerts($movie_details->release_dates);
+          // $movie_details = apiMovie($movie->api_movie_id);
+          // $certification = getCerts($movie_details->release_dates);
         ?>
           <div class="queue-card queue-card-number">
-            <a href="/movie?id=<?php echo h($movie_details->id); ?>">
-              <img src="<?php echo h(apiCheckImage($movie_details->poster_path)); ?>" alt="<?php echo h($movie_details->title); ?> movie poster" height="513" width="342" loading=“lazy” decoding=“async>
+            <a href="/movie?id=<?php echo h($movie->api_movie_id); ?>">
+              <img src="<?php echo h(apiCheckImage($movie->poster_path)); ?>" alt="<?php echo h($movie->movie_title); ?> movie poster" height="513" width="342" loading=“lazy” decoding=“async>
             </a>
             <div>
-              <h4><?php echo h($movie_details->title); ?></h4>
-              <p><?php echo h(get_year_format($movie_details->release_date ?? '')); ?></p>
+              <h4><?php echo h($movie->movie_title); ?></h4>
               <?php if($session->user_id == $movie_club->club_owner_id){ ?>
                 <form action="/movie-queue?id=<?php echo h($id); ?>" method="post">
                   <button class="link-button" type="submit" name="remove-movie" value="<?php echo h($movie->id); ?>">Remove From Queue</button>

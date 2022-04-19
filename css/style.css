@@ -881,8 +881,16 @@ main {
   border-radius: 3px;
   color: var(--color-white);
   display: flex;
+  gap: .5rem;
   padding: .5rem;
   position: relative;
+}
+
+.queue-card div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .queue-card:hover {
@@ -891,12 +899,16 @@ main {
 
 .queue-card img {
   border-radius: 3px;
-  margin-right: .5rem;
   width: 75px;
 }
 
-.queue-card .link-button-delete {
-  margin: 0;
+.queue-card a {
+  display: flex;
+  justify-content: center;
+}
+
+.queue-card .link-button {
+  width: 100%;
 }
 
 .queue-card-number::before {
@@ -912,9 +924,10 @@ main {
   font-weight: bold;
   height: 40px;
   justify-content: center;
-  margin-bottom: 10px;
-  margin-right: 10px;
+  /* margin-bottom: 10px; */
+  /* margin-right: 10px; */
   width: 40px;
+  min-width: 40px;
 }
 
 .queue-card button {

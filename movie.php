@@ -48,7 +48,7 @@ if(is_post_request() && $user_clubs != false){
         redirect_to('/movie?id=' . $movie_id);
       }
     }
-    if(count($movie_queue) == 10){
+    if(count($movie_queue) == 20){
       $session->message('' . $movie_club->club_name . ' has reached the maximum amount of movies allowed in the queue.');
       redirect_to('/movie?id=' . $movie_id);
     }
@@ -58,7 +58,9 @@ if(is_post_request() && $user_clubs != false){
     $args = array(
       'api_movie_id' => $movie_id,
       'movie_club_id' => $movie_club->id,
-      'user_id' => $session->user_id
+      'user_id' => $session->user_id,
+      'poster_path' => $movie_details->poster_path,
+      'movie_title' => $movie_details->title
     );
     $new_movie = new ClubMovie($args);
     $result = $new_movie->save();

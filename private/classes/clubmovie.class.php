@@ -3,7 +3,7 @@
 class ClubMovie extends DatabaseObject {
 
   static protected $table_name = "club_movies";
-  static protected $db_columns = ['id', 'api_movie_id', 'movie_club_id', 'user_id', 'queue_number', 'date_added', 'watched_status'];
+  static protected $db_columns = ['id', 'api_movie_id', 'movie_club_id', 'user_id', 'queue_number', 'date_added', 'watched_status', 'movie_title', 'poster_path'];
 
   public $id;
   public $api_movie_id;
@@ -12,14 +12,18 @@ class ClubMovie extends DatabaseObject {
   public $queue_number;
   public $date_added;
   public $watched_status;
+  public $poster_path;
+  public $movie_title;
 
   public function __construct($args=[]) {
     $this->api_movie_id = $args['api_movie_id'] ?? '';
     $this->movie_club_id = $args['movie_club_id'] ?? '';
     $this->user_id = $args['user_id'] ?? '';
-    $this->queue_number = $args['queue_number'] ?? '';
+    $this->queue_number = $args['queue_number'] ?? null;
     $this->date_added = $args['date_added'] ?? date('Y-m-d');
     $this->watched_status = $args['watched_status'] ?? 0;
+    $this->movie_title = $args['movie_title'] ?? '';
+    $this->poster_path = $args['poster_path'] ?? '/images/tmdb/missing-image.webp';
   }
 
   static public function find_current_movie($movie_club_id) {
