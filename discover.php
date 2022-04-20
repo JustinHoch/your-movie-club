@@ -23,9 +23,9 @@ if(is_post_request()){
   if(isset($_POST['watch_provider'])){
     $url_string .= "&with_watch_providers=";
     foreach($_POST['watch_provider'] as $watch_provider){
-      $url_string .= $watch_provider . ",";
+      $url_string .= $watch_provider . "|";
     }
-    $url_string = rtrim($url_string, ", ");
+    $url_string = rtrim($url_string, "| ");
   }
 
   redirect_to('/discover' . $url_string);
@@ -55,7 +55,7 @@ if(isset($_GET['with_genres'])){
 }
 
 if(isset($_GET['with_watch_providers'])){
-  $in_watch_providers = explode(",", $_GET['with_watch_providers']);
+  $in_watch_providers = explode("|", $_GET['with_watch_providers']);
   $search_string .= "&with_watch_providers=" . $_GET['with_watch_providers'] . "&watch_region=US";
   $search_string_no_page .= "&with_watch_providers=" . $_GET['with_watch_providers'] . "&watch_region=US";
 }
