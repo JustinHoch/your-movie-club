@@ -19,10 +19,12 @@ function require_admin() {
   }
 }
 
-function require_club_member($user_id, $club_id) {
+function require_club_member_or_admin($user_id, $club_id, $user_level) {
   $check = ClubMember::member_check($user_id, $club_id);
-  if($check === false){
-    redirect_to('/account');
+  if($check == false && $user_level == 1){
+    return false;
+  }else{
+    return true;
   }
 }
 

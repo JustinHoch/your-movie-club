@@ -12,8 +12,10 @@ if(!isset($_GET['id'])){
 }
 $id = $_GET['id'];
 
-// Require User to be a member of the club
-require_club_member($session->user_id, $id);
+// Require User to be a member of the club or admin
+if(!require_club_member_or_admin($session->user_id, $id, $session->user_level)){
+  redirect_to('/account');
+}
 
 // Get Movie Club Details
 $movie_club = MovieClub::find_by_id($id);

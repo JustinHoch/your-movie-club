@@ -35,8 +35,10 @@ $cast = $movie_details->credits->cast;
 
 // Form Proccessing
 if(is_post_request() && $user_clubs != false){
-  // Check if user is a member of the club
-  require_club_member($session->user_id, $_POST['club_id']);
+  // Require User to be a member of the club or admin
+  if(!require_club_member_or_admin($session->user_id, $_POST['club_id'], $session->user_level)){
+    redirect_to('/account');
+  }
   // Get movie club details
   $movie_club = MovieClub::find_by_id($_POST['club_id']);
   // Check if movie is already in queue

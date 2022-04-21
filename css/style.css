@@ -776,7 +776,7 @@ main {
 
 .club-details .link-button {
   text-align: center;
-  width: 150px;
+  width: 160px;
 }
 
 .current-movie-details > div {
@@ -1220,6 +1220,60 @@ main {
   margin: 1rem 0;
 }
 
+/* Watched Movies page */
+
+.watched-movies-page {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: .5rem;
+}
+
+.watched-movies-page h2 {
+  margin-bottom: 1rem;
+}
+
+.watched-movies-page > p {
+  margin-bottom: 1rem;
+}
+
+.watched-movies-page .watched-movie-list {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.watched-movie-card {
+  background-color: var(--color-black);
+  border-radius: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: .5rem;
+  /* width: 100%; */
+}
+
+.watched-movie-card form {
+  display: inline-block;
+  padding: 0;
+}
+
+.watched-movie-card .watched-movie-details {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.watched-movie-card img {
+  border-radius: 3px;
+  max-width: 125px;
+}
+
+.watched-movie-card .link-button, .watched-movie-card .link-button-delete {
+  margin: 0;
+  width: 140px;
+  text-align: center;
+}
+
 /* ****************************************
 FOOTER
 **************************************** */
@@ -1432,5 +1486,12 @@ MEDIA QUERY 800PX+
   #provider-list {
     width: 800px;
     left: -455px;
+  }
+
+  /* Watched Movies page */
+
+  .watched-movies-page .watched-movie-list {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }

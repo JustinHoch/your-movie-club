@@ -17,10 +17,15 @@ $movie_club = MovieClub::find_by_id($id);
 if($movie_club == false){
   redirect_to('/account');
 }
-$movie_club_owner = User::find_by_id($movie_club->club_owner_id);
+
+// Check if user is club owner or admin
+$owner_or_admin = false;
+if($movie_club->club_owner_id == $session->user_id || $session->user_level != 1){
+  $owner_or_admin = true;
+}
 
 // Check session user and club owner
-if($movie_club_owner->id != $session->user_id){
+if(!$owner_or_admin){
   redirect_to('/account');
 }
 

@@ -12,14 +12,23 @@ if(!isset($_GET['id'])){
 }
 $id = $_GET['id'];
 
-// Require User to be a member of the club
-require_club_member($session->user_id, $id);
+// Require User to be a member of the club or admin
+if(!require_club_member_or_admin($session->user_id, $id, $session->user_level)){
+  redirect_to('/account');
+}
 
 // Get Movie Club Details
 $movie_club = MovieClub::find_by_id($id);
 if($movie_club == false){
   redirect_to('/account');
 }
+
+// Check if user is club owner or admin
+$owner_or_admin = false;
+if($movie_club->club_owner_id == $session->user_id || $session->user_level != 1){
+  $owner_or_admin = true;
+}
+
 $movie_club_owner = User::find_by_id($movie_club->club_owner_id);
 $current_movie = ClubMovie::find_current_movie($movie_club->id);
 if($current_movie != false){
@@ -85,7 +94,8 @@ include(SHARED_PATH . '/header.php');
       <ul>
         <li><a href="/movie-queue?id=<?php echo h($movie_club->id) ?>" class="link-button">Movie Queue</a></li>
         <li><a href="/club-members?id=<?php echo h($movie_club->id) ?>" class="link-button">Club Members</a></li>
-        <?php if($session->user_id == $movie_club_owner->id){ ?>
+        <li><a href="/watched-movies?id=<?php echo h($movie_club->id) ?>" class="link-button">Watched Movies</a></li>
+        <?php if($owner_or_admin){ ?>
           <li><a href="/edit-club?id=<?php echo h($movie_club->id) ?>" class="link-button">Edit Club</a></li>
         <?php } ?>
       </ul>
