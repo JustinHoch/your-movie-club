@@ -535,6 +535,13 @@ main {
   padding: 0;
 }
 
+/* reCAPTCHA */
+
+.grecaptcha-badge { 
+  visibility: hidden; 
+}
+
+
 /* Error Message */
 
 .error-message {

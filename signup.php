@@ -81,6 +81,8 @@ include(SHARED_PATH . '/header.php');
     <label for="confirm-password">Confirm Password</label>
     <input type="password" id="confirm-password" placeholder="retype password" name="user[confirm_password]" value="<?php echo h($user->confirm_password); ?>" required>
 
+    <p>This site is protected by reCAPTCHA and the Google <a target="blank" href="https://policies.google.com/privacy">Privacy Policy</a> and <a target="blank" href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+
     <button type="submit" value="Sign up">Sign Up</button>
 
     <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
