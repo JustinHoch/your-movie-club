@@ -46,7 +46,7 @@ include(SHARED_PATH . '/header.php');
     <?php foreach($api_results as $result){ ?>
       <div class="search-card">
         <a href="/movie?id=<?php echo h($result->id) ?>">
-          <img src="<?php echo h(apiCheckImage($result->poster_path)); ?>" alt="<?php echo h($result->title) ?> movie poster" height="513" width="342" loading=“lazy” decoding=“async>
+          <img class="shadow" src="<?php echo h(apiCheckImage($result->poster_path)); ?>" alt="<?php echo h($result->title) ?> movie poster" height="513" width="342" loading=“lazy” decoding=“async>
         </a>
         <h3><?php echo h($result->title) ?></h3>
         <span><?php echo h(get_year_format($result->release_date ?? '')) ?></span>

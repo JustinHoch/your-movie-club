@@ -125,7 +125,7 @@ h1 {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 28px;
 }
 
 a {
@@ -193,6 +193,10 @@ button {
 
 input, textarea {
   font: 14px 'Raleway', Arial, sans-serif;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 var(--color-black), 0 6px 20px 0 var(--color-black);
 }
 
 /* ****************************************
@@ -323,7 +327,7 @@ nav h1 {
 
 .menu a {
   color: var(--color-white);
-  padding: .5rem;
+  padding: 1rem .5rem;
   text-align: center;
   text-decoration: none;
   width: 100%;
@@ -338,7 +342,7 @@ nav h1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: .5rem;
+  padding: 1rem .5rem;
 }
 
 .nav-link img {
@@ -629,6 +633,7 @@ main {
 
 .club-card img {
   border-radius: 3px;
+  box-shadow: none;
   width: 100px;
 }
 
@@ -665,7 +670,7 @@ main {
 
 .movie-details img {
   border-radius: 3px;
-  max-width: 300px;
+  max-width: 400px;
 }
 
 .movie-details div {
@@ -693,6 +698,7 @@ main {
   display: block;
   font: 14px 'Raleway', Arial, sans-serif;
   margin-bottom: .5rem;
+  min-width: 140px;
   padding: .4rem;
 }
 
@@ -732,11 +738,11 @@ main {
 .cast-container {
   display: flex;
   flex-wrap: wrap;
+  gap: .5rem;
 }
 
 .cast-card {
-  margin-right: .5rem;
-  width: 140px;
+  max-width: 180px;
 }
 
 .cast-card img {
@@ -906,6 +912,7 @@ main {
 
 .queue-card img {
   border-radius: 3px;
+  box-shadow: none;
   width: 75px;
 }
 
@@ -915,7 +922,7 @@ main {
 }
 
 .queue-card .link-button {
-  width: 100%;
+  max-width: 200px;
 }
 
 .queue-card-number::before {
@@ -975,6 +982,7 @@ main {
 
 .member-card img {
   border-radius: 50%;
+  box-shadow: none;
   margin-right: .5rem;
   width: 75px;
 }
@@ -999,12 +1007,12 @@ main {
 .search-return {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: .5rem;
   justify-content: space-around;
 }
 
 .search-card {
-  max-width: 160px;
+  max-width: 175px;
 }
 
 .search-card img {
@@ -1207,7 +1215,7 @@ main {
 .discover-page .discover-movies {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: .5rem;
   justify-content: space-around;
 }
 
@@ -1329,7 +1337,7 @@ MEDIA QUERY 800PX+
   }
 
   h2 {
-    font-size: 26px;
+    font-size: 32px;
   }
 
   .menu-button-container {
@@ -1395,7 +1403,7 @@ MEDIA QUERY 800PX+
   /* Search Page */
 
   .search-card {
-    max-width: 200px;
+    max-width: 230px;
   }
 
   .search-page .forms {

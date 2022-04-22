@@ -79,11 +79,13 @@ function getGenres($genres) {
   return $genre_string;
 }
 
-function apiCheckImage($image_path) {
+function apiCheckImage($image_path, $size="md") {
   if($image_path == ""){
     return "/images/tmdb/missing-image.webp";
-  }else{
+  }elseif($size == "md"){
     return "https://image.tmdb.org/t/p/w342" . $image_path;
+  }elseif($size == "lg"){
+    return "https://image.tmdb.org/t/p/w500" . $image_path;
   }
 }
 

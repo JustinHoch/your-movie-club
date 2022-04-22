@@ -84,7 +84,7 @@ include(SHARED_PATH . '/header.php');
   <?php echo display_session_message(); ?>
 
   <div class="movie-details">
-    <img src="<?php echo h(apiCheckImage($movie_details->poster_path)); ?>" alt="movie poster" height="513" width="342" loading=“lazy” decoding=“async>
+    <img src="<?php echo h(apiCheckImage($movie_details->poster_path, $size='lg')); ?>" alt="movie poster" height="750" width="500" loading=“lazy” decoding=“async>
     <div>
       <h2><?php echo h($movie_details->title); ?></h2>
       <?php if($certification){ ?>
@@ -97,7 +97,7 @@ include(SHARED_PATH . '/header.php');
       <p><?php echo h($movie_details->overview); ?></p>
       <?php if($session->is_logged_in() && $user_clubs != false){ ?>
         <form action="/movie?id=<?php echo h($movie_id); ?>" method="post">
-          <label for="clubs">Add to movie queue</label>
+          <label for="clubs">Add to Movie Queue</label>
           <select name="club_id" id="clubs">
             <?php foreach($user_clubs as $club){ ?>
               <option value="<?php echo h($club->id); ?>"><?php echo h($club->club_name); ?></option>
