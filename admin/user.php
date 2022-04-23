@@ -28,6 +28,9 @@ if($user->user_level == 3 && $session->user_level != 3){
   redirect_to('/admin');
 }
 
+// Find all User made movie clubs
+$user_clubs = MovieClub::find_by_owner_id($user->id);
+
 // Page Title
 $page_title='Admin: User';
 
@@ -58,6 +61,39 @@ include(SHARED_PATH . '/admin-header.php');
   <div>
     <a href="/admin/edit-user?id=<?php echo h($user->id) ?>" class="link-button">Edit User</a>
     <a href="/admin/delete-user?id=<?php echo h($user->id) ?>" class="link-button-delete">Delete User</a>
+  </div>
+</div>
+
+<div class="account-clubs">
+  <h2>Clubs Created By <?php echo h($user->username) ?></h2>
+  <div class="clubs">
+    <?php if($user_clubs != false){ ?>
+      <?php foreach($user_clubs as $club){
+        $club_details = MovieClub::find_by_id($club->id);
+        $current_movie = ClubMovie::find_current_movie($club_details->id);
+        ?>
+        <?php if($current_movie !== false) {  ?>
+          <a href="/club.php?id=<?php echo h($club_details->id) ?>" class="club-card">
+            <img src="<?php echo h(apiCheckImage($current_movie->poster_path)); ?>" alt="<?php echo h($current_movie->movie_title) ?> movie poster" height="231" width="154" loading=“lazy” decoding=“async>
+            <div>
+              <h3><?php echo h($club_details->club_name) ?></h3>
+              <p><span>Current Movie:</span> <?php echo h($current_movie->movie_title) ?></p>
+            </div>
+          </a>
+        <?php }else{?>
+          <a href="/club.php?id=<?php echo h($club_details->id) ?>" class="club-card">
+            <img src="/images/tmdb/missing-image.webp" alt="missing image" height="513" width="342" loading=“lazy” decoding=“async>
+            <div>
+              <h3><?php echo h($club_details->club_name) ?></h3>
+              <p>No Current Movie</p>
+            </div>
+          </a>
+        <?php } // end else?>
+      <?php } ?>
+    <?php }else{ ?>
+      <h3>This user has not created any clubs.</h3>
+      <img src="/images/other/empty-space-holder.svg" alt="person with stars and the words empty space" style="box-shadow: none;">
+    <?php } ?>
   </div>
 </div>
 

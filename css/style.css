@@ -128,6 +128,10 @@ h2 {
   font-size: 28px;
 }
 
+p {
+  line-height: 1.5;
+}
+
 a {
   color: var(--color-light-blue);
   text-decoration: none;
@@ -234,8 +238,15 @@ nav {
 
 nav h1 {
   color: var(--color-white);
-  flex-grow: 2;
   padding: 0 1rem;
+}
+
+nav .site-name {
+  flex-grow: 2;
+}
+
+nav .site-name:hover {
+  text-decoration: none;
 }
 
 #menu-toggle {
@@ -459,7 +470,7 @@ main {
   flex: 0 0 auto;
   margin-bottom: .5rem;
   padding: .5rem;
-  width: 150px;
+  width: 160px;
 }
 
 .movie-card img {
@@ -511,6 +522,7 @@ main {
 }
 
 #avatar {
+  border: none;
   margin-bottom: 1rem;
 }
 
@@ -642,7 +654,7 @@ main {
 }
 
 .club-card h3 {
-  color: var(--color-light-purple);
+  color: var(--color-blue);
 }
 
 .club-card div p {
@@ -679,6 +691,27 @@ main {
 
 .movie-details div h2 {
   margin: 1rem 0 .5rem;
+}
+
+.movie-details .genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem;
+  margin: .5rem 0;
+}
+
+.movie-details .genre-link {
+  border: 2px solid var(--color-blue);
+  border-radius: 25px;
+  color: var(--color-white);
+  font-weight: bold;
+  padding: .5rem .75rem;
+  text-decoration: none;
+}
+
+.movie-details .genre-link:hover {
+  background-color: var(--color-blue);
+  color: var(--color-black);
 }
 
 .movie-details form {
@@ -742,7 +775,7 @@ main {
 }
 
 .cast-card {
-  max-width: 180px;
+  max-width: 175px;
 }
 
 .cast-card img {
@@ -1106,6 +1139,10 @@ main {
   text-align: center;
 }
 
+.admin-page .account-clubs h2 {
+  margin-bottom: 1rem;
+}
+
 /* Discover Page */
 .discover-page {
   margin: 0 auto;
@@ -1115,7 +1152,7 @@ main {
 
 .discover-page h2 {
   margin-bottom: 1rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 #discover-form {
@@ -1130,13 +1167,14 @@ main {
 
 #discover-sort {
   display: flex;
+  font-size: 16px;
 }
 
 #discover-sort label {
   background-color: var(--color-black);
   border-radius: 3px 0 0 3px;
   font-weight: bold;
-  padding: .5rem;
+  padding: .65rem;
 }
 
 #discover-sort select {
@@ -1146,8 +1184,8 @@ main {
   color: var(--color-white);
   font-family: 'Raleway', Arial, sans-serif;
   font-weight: bold;
-  font-size: 14px;
-  padding: .25rem;
+  font-size: 16px;
+  padding: .5rem;
   width: 100%;
 }
 
@@ -1210,6 +1248,36 @@ main {
 .dropdown-content input:checked ~ label {
   color: var(--color-black);
   background-color: var(--color-blue);
+}
+
+.discover-selected {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.discover-selected h3 {
+  margin-bottom: .5rem;
+}
+
+.selected-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.discover-selected span {
+  border: 2px solid var(--color-blue);
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: bold;
+  padding: .25rem;
+}
+
+.discover-selected > div {
+  max-width: 600px;
 }
 
 .discover-page .discover-movies {
@@ -1294,25 +1362,34 @@ footer {
 }
 
 #footer-container {
+  align-items: center;
   display: flex;
   flex-direction: column;
+  gap: .5rem;
   justify-content: center;
   margin: 0 auto;
-  max-width: 1600px;
+  max-width: 320px;
   padding: 1rem;
 }
 
 #ymc-attr {
-  margin: 0 auto 1rem;
-  max-width: 275px;
+  display: flex;
+  gap: .5rem;
+  /* margin: 0 auto 1rem; */
+  max-width: 300px;
   /* text-align: center; */
+}
+
+#ymc-attr img {
+  height: 50px;
+  width: 50px;
 }
 
 #tmdb-attr {
   display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  /* max-width: 300px; */
+  gap: .5rem;
+  /* justify-content: center; */
+  /* margin: 0 auto; */
 }
 
 #tmdb-attr img {
@@ -1320,8 +1397,7 @@ footer {
 }
 
 #tmdb-attr p {
-  padding-left: .5rem;
-  max-width: 225px;
+  max-width: 300px;
 }
 
 /* ****************************************
@@ -1372,22 +1448,22 @@ MEDIA QUERY 800PX+
     border-right: 2px solid var(--color-white);
   }
 
+  /* Footer */
+
   #footer-container {
     flex-direction: row;
     justify-content: space-between;
+    max-width: none;
   }
 
-  #ymc-attr,
-  #tmdb-attr {
+  #ymc-attr {
+    max-width: none;
     margin: 0;
   }
 
   #tmdb-attr {
     align-items: center;
-  }
-
-  #tmdb-attr p {
-    max-width: 250px;
+    margin: 0;
   }
 
   /* Account page */

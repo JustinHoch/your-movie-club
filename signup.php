@@ -86,6 +86,8 @@ include(SHARED_PATH . '/header.php');
     <button type="submit" value="Sign up">Sign Up</button>
 
     <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+    <!-- For fixing recaptcha failing accessibility check -->
+    <label for="g-recaptcha-response-100000" style="display: none;">Recaptcha</label>
   </form>
   <p>Already have an account? <a href="login.php">Login</a></p>
 </div>

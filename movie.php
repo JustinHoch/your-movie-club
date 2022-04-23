@@ -91,8 +91,8 @@ include(SHARED_PATH . '/header.php');
       <p><?php echo h($certification); ?></p>
       <?php } ?>
       <p><?php echo h(get_year_format($movie_details->release_date ?? '')); ?></p>
-      <p><?php echo h($genres); ?></p>
       <p><?php echo h($movie_details->runtime); ?> minutes</p>
+      <p class="genre-list"><?php echo $genres; ?></p>
       <h2>Overview</h2>
       <p><?php echo h($movie_details->overview); ?></p>
       <?php if($session->is_logged_in() && $user_clubs != false){ ?>

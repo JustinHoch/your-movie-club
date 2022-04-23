@@ -58,7 +58,7 @@ include(SHARED_PATH . '/header.php');
 
   <h2><a href="/club?id=<?php echo h($movie_club->id); ?>"><?php echo h($movie_club->club_name); ?></a> Watched Movies</h2>
 
-  <p>This is a list of the movies that have been watched in this club.<br>You can visit the movies to see the details and comments for that movie.</p>
+  <p>This is a list of the movies that have been watched in this club.<br>You can visit the movies here to see details and comments for that movie.</p>
 
   <?php if($watched_movies != false){ ?>
   <div class="watched-movie-list">
@@ -77,6 +77,7 @@ include(SHARED_PATH . '/header.php');
   </div>
   <?php }else{ ?>
   <p>There are no watched movies in this club!</p>
+  <img src="/images/other/empty-space-holder.svg" alt="person with stars and the words empty space" style="box-shadow: none;">
   <?php } ?>
   
 </div>

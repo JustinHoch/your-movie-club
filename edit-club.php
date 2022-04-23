@@ -51,7 +51,7 @@ include(SHARED_PATH . '/header.php');
 ?>
 
 <div class="forms create-club">
-  <h2>Edit Movie Club</h2>
+  <h2>Edit <a href="/club?id=<?php echo h($movie_club->id) ?>"><?php echo h($movie_club->club_name) ?></a></h2>
   <form action="/edit-club?id=<?php echo h($id)  ?>" method="post">
     <label for="club-name">Movie Club Name</label>
     <input type="text" name="club[club_name]" id="club-name" value="<?php echo h($movie_club->club_name)  ?>" required>

@@ -54,6 +54,7 @@ include(SHARED_PATH . '/header.php');
     <?php } ?>
   <?php }else{ ?>
     <p>Sorry, no results were found.</p>
+    <img src="/images/other/empty-space-holder.svg" alt="person with stars and the words empty space" style="box-shadow: none;">
   <?php } ?>
 
   </div>

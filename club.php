@@ -70,7 +70,7 @@ include(SHARED_PATH . '/header.php');
   <!-- Display Session Message if there is one -->
   <?php echo display_session_message(); ?>
 
-  <h2><?php echo h($movie_club->club_name) ?></h2>
+  <h2><a href="/club?id=<?php echo h($movie_club->id) ?>"><?php echo h($movie_club->club_name) ?></a></h2>
   <p><?php echo h($movie_club->description) ?></p>
   <div class="club-details">
     <?php if($current_movie != false){ ?>
@@ -88,7 +88,7 @@ include(SHARED_PATH . '/header.php');
         </div>
       </div><!--End current-movie-details-->
     <?php }else{ ?>
-        <p>There are currently no movies in your Movie Queue. You can add movies by <a href="/search">searching</a>.</p>
+        <p>There are currently no movies in your <a href="/movie-queue?id=<?php echo h($movie_club->id) ?>">Movie Queue</a>. You can add movies using the <a href="/search">Search Page</a> for finding a specific movie or by using the <a href="/discover">Discover Page</a> to browse for movies.</p>
     <?php } ?>
     <div class="club-links">
       <ul>
@@ -132,6 +132,8 @@ include(SHARED_PATH . '/header.php');
 
       </div>
     </div><!--End discussion-->
+  <?php }else{ ?>
+    <img src="/images/other/empty-space-holder.svg" alt="person with stars and the words empty space" style="box-shadow: none;">
   <?php } ?>
 </div><!--End Club-page-->
 

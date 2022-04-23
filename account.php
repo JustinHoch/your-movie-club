@@ -51,11 +51,11 @@ include(SHARED_PATH . '/header.php');
           $movie = apiMovie($club_movie->api_movie_id);
         ?>
           <a href="club.php?id=<?php echo h($club_details->id) ?>" class="club-card">
-            <img src="<?php echo h(apiCheckImage($movie->poster_path)); ?>" alt="movie poster" height="231" width="154" loading=“lazy” decoding=“async>
+            <img src="<?php echo h(apiCheckImage($movie->poster_path)); ?>" alt="<?php echo h($movie->title) ?> movie poster" height="231" width="154" loading=“lazy” decoding=“async>
             <div>
               <h3><?php echo h($club_details->club_name) ?></h3>
               <p><span>Current Movie:</span> <?php echo h($movie->title) ?></p>
-              <p><span>Created By:</span> <?php echo h($club_owner->username) ?></p>
+              <p><span>Created By:</span> <?php if($session->user_id == $club_owner->id){ echo h($club_owner->username . " (You)");}else{ echo h($club_owner->username); } ?></p>
             </div>
           </a>
         <?php }else{?>
@@ -64,7 +64,7 @@ include(SHARED_PATH . '/header.php');
             <div>
               <h3><?php echo h($club_details->club_name) ?></h3>
               <p>No Current Movie</p>
-              <p><span>Created By:</span> <?php echo h($club_owner->username) ?></p>
+              <p><span>Created By:</span> <?php if($session->user_id == $club_owner->id){ echo h($club_owner->username . " (You)");}else{ echo h($club_owner->username); } ?></p>
             </div>
           </a>
         <?php } // end else?>

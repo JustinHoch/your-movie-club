@@ -74,7 +74,8 @@ function getCerts($movie_certs) {
 function getGenres($genres) {
   $genre_string = "";
   foreach($genres as $genre){
-    $genre_string .= $genre->name . " ";
+    // $genre_string .= $genre->name . " ";
+    $genre_string .= "<a href=\"/discover?sort_by=popularity.desc&with_genres=" . $genre->id . "\" class=\"genre-link\">" . $genre->name . "</a>";
   }
   return $genre_string;
 }

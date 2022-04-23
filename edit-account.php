@@ -37,8 +37,8 @@ include(SHARED_PATH . '/header.php');
 
   <h2>Edit Account</h2>
   <form action="/edit-account" method="post">
-    <p>Change Avatar</p>
-    <div id="avatar">
+    <fieldset id="avatar">
+      <legend>Change Avatar</legend>
       <label class="avatar-radio" for="avatar1">
         <input type="radio" name="user[avatar_path]" id="avatar1" value="blue-cat.webp" <?php echo $session->avatar_path === 'blue-cat.webp' ? 'checked' : ''; ?>>
         <img src="/images/user/blue-cat.webp" alt="blue cat avatar" height="250" width="250" loading=“lazy” decoding=“async>
@@ -75,7 +75,7 @@ include(SHARED_PATH . '/header.php');
         <input type="radio" name="user[avatar_path]" id="avatar9" value="purple-rabbit.webp" <?php echo $session->avatar_path === 'purple-rabbit.webp' ? 'checked' : ''; ?>>
         <img src="/images/user/purple-rabbit.webp" alt="purple rabbit avatar" height="250" width="250" loading=“lazy” decoding=“async>
       </label>
-    </div><!--End avatar-->
+    </fieldset><!--End avatar-->
 
     <label for="email">Email</label>
     <input type="text" id="email" placeholder="Email" name="user[email]" value="<?php echo h($session->email); ?>">

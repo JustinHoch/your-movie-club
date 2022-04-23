@@ -27,7 +27,7 @@ if(is_post_request()){
     }
     $url_string = rtrim($url_string, "| ");
   }
-
+  
   redirect_to('/discover' . $url_string);
 }
 
@@ -84,7 +84,7 @@ include(SHARED_PATH . '/header.php');
 
 <div class="discover-page">
   <h2>Discover Movies</h2>
-  <div class="form">
+  <div class="form" id="discover-form-container">
     <form action="/discover" method="post" id="discover-form">
       <div id="discover-sort">
         <label for="sort_by">Sort:</label>
@@ -104,7 +104,7 @@ include(SHARED_PATH . '/header.php');
         <div id="genre-list" class="dropdown-content">
           <?php foreach($genres->genres as $genre){ ?>
             <div class="genre-checkbox">
-              <input type="checkbox" name="genre[<?php echo h($genre->name); ?>]" id="<?php echo h($genre->name); ?>" value="<?php echo h($genre->id); ?>" <?php if(in_array($genre->id, $in_genres)){ echo 'checked'; } ?>>
+              <input type="checkbox" name="genre[<?php echo h($genre->name); ?>]" data-genre="genre" id="<?php echo h($genre->name); ?>" value="<?php echo h($genre->id); ?>" <?php if(in_array($genre->id, $in_genres)){ echo 'checked'; } ?>>
               <label for="<?php echo h($genre->name); ?>"><?php echo h($genre->name); ?></label>
             </div>
           <?php } ?>
@@ -122,7 +122,7 @@ include(SHARED_PATH . '/header.php');
             if($provider->provider_id != 119){
           ?>
             <div class="provider-checkbox">
-              <input type="checkbox" name="watch_provider[<?php echo h($provider->provider_name); ?>]" id="<?php echo h($provider->provider_id); ?>" value="<?php echo h($provider->provider_id); ?>" <?php if(in_array($provider->provider_id, $in_watch_providers)){ echo 'checked'; } ?>>
+              <input type="checkbox" name="watch_provider[<?php echo h($provider->provider_name); ?>]" data-provider="provider" id="<?php echo h($provider->provider_id); ?>" value="<?php echo h($provider->provider_id); ?>" <?php if(in_array($provider->provider_id, $in_watch_providers)){ echo 'checked'; } ?>>
               <label for="<?php echo h($provider->provider_id); ?>"><?php echo h($provider->provider_name); ?></label>
             </div>
           <?php }} ?>
@@ -132,6 +132,45 @@ include(SHARED_PATH . '/header.php');
       <button type="submit">Search</button>
     </form>
   </div>
+
+  <!-- Selected genres and/or watch providers -->
+  <?php if(!empty($in_genres) || !empty($in_watch_providers)){ ?>
+  <div class="discover-selected">
+    <?php if(!empty($in_genres)){ ?>
+      <div>
+        <h3>Selected Genres</h3>
+        <div class="selected-container">
+          <?php
+            foreach($in_genres as $selected_genre){
+              foreach($genres->genres as $genre){
+                if($selected_genre == $genre->id){
+                  echo "<span>" . $genre->name . "</span>";
+                }
+              }
+            }
+          ?>
+        </div>
+      </div>
+    <?php } ?>
+
+    <?php if(!empty($in_watch_providers)){ ?>
+      <div>
+        <h3>Selected Providers</h3>
+        <div class="selected-container">
+          <?php
+            foreach($in_watch_providers as $selected_provider){
+              foreach($watch_providers->results as $provider){
+                if($selected_provider == $provider->provider_id){
+                  echo "<span>" . $provider->provider_name . "</span>";
+                }
+              }
+            }
+          ?>
+        </div>
+      </div>
+    <?php } ?>
+  </div>
+  <?php } ?>
 
   <div class="discover-movies">
   <?php if(!empty($movies->results)){ ?>
@@ -146,6 +185,7 @@ include(SHARED_PATH . '/header.php');
     <?php } ?>
   <?php }else{ ?>
     <p>No results were found!</p>
+    <img src="/images/other/empty-space-holder.svg" alt="person with stars and the words empty space" style="box-shadow: none;">
   <?php } ?>
   </div>
 

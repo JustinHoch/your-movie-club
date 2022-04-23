@@ -73,7 +73,10 @@ include(SHARED_PATH . '/header.php');
   <?php echo display_session_message(); ?>
 
   <h2><a href="/club?id=<?php echo h($movie_club->id); ?>"><?php echo h($movie_club->club_name); ?></a> Movie Queue</h2>
-  <p>You can add movies to your club queue by searching or exploring movies.</p>
+  <?php if($owner_or_admin){ ?>
+  <p>You can add movies using the <a href="/search">Search Page</a> for finding a specific movie or by using the <a href="/discover">Discover Page</a> to browse for movies.</p>
+  <p>When you are done watching the current movie, press the "Next Movie" button to proceed to the next movie in the queue. The current movie will then be added to the <a href="/watched-movies">watched movies list</a> where you can revisit the movie to see when it was watched and the users comments on that movie.</p>
+  <?php } ?>
 
   <?php if($movie_queue !== false){ 
     $current_movie = $movie_queue[0];
@@ -126,6 +129,7 @@ include(SHARED_PATH . '/header.php');
   </div>
   <?php }else{ ?>
     <p>There are currently no movies in the queue.</p>
+    <img src="/images/other/empty-space-holder.svg" alt="person with stars and the words empty space" style="box-shadow: none;">
   <?php } ?>
 </div>
 
