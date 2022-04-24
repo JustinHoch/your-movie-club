@@ -23,6 +23,9 @@ if(is_post_request()){
 // Page Title
 $page_title = "Search";
 
+// Meta Description
+$meta_description = 'Search for movies to watch and add to your movie club watch list.';
+
 // Header
 include(SHARED_PATH . '/header.php');
 

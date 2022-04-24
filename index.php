@@ -3,6 +3,9 @@
 // Initialize
 require_once('./private/initialize.php');
 
+// Meta Description
+$meta_description = 'Welcome to Your Movie Club! Here you can create movie clubs to connect with friends and family and discuss your favorite movies.';
+
 // Header
 include(SHARED_PATH . '/header.php');
 

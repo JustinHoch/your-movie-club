@@ -77,6 +77,9 @@ $js_files = [
 // Page Title
 $page_title = "Discover";
 
+// Meta Description
+$meta_description = 'Browse movies by popularity, genre, or watch provider to discover movies to add to your watch lists.';
+
 // Header
 include(SHARED_PATH . '/header.php');
 

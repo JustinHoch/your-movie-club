@@ -14,6 +14,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo h($page_title); ?></title>
+    <?php if(isset($meta_description)){ ?>
+      <meta name="description" content="<?php echo h($meta_description) ?>">
+    <?php } ?>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <?php if(isset($js_files)){
