@@ -97,7 +97,7 @@ class User extends DatabaseObject {
     }
 
     if(isset($this->recaptcha_score)) {
-      if($this->recaptcha_score  <= 0.5){
+      if($this->recaptcha_score <= 0.5){
         $this->errors[] = "Sorry! It looks like you might be a robot. If you are a human, please try again.";
       }
     }

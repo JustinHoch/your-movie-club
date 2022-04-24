@@ -30,6 +30,7 @@
   include('classes/clubmovie.class.php');
   include('classes/comment.class.php');
   include('classes/clubmember.class.php');
+  include('classes/passwordreset.class.php');
   
   // Autoload class definitions
   // function my_autoload($class) {

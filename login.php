@@ -59,6 +59,7 @@ include(SHARED_PATH . '/header.php');
     <button type="submit">Login</button>
   </form>
   <p>Don't have an account? <a href="signup.php">Sign Up!</a></p>
+  <p>Forgot your password? <a href="/forgot-password">Reset Password</a></p>
 </div>
 
 <?php

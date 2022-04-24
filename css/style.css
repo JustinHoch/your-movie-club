@@ -1420,6 +1420,18 @@ footer {
   max-width: 300px;
 }
 
+/* Password Pending */
+.reset-pending {
+  margin: 5rem auto;
+  max-width: 1200px;
+  padding: .5rem;
+  text-align: center;
+}
+
+.reset-pending p {
+  margin: 1rem 0;
+}
+
 /* ****************************************
 MEDIA QUERY 800PX+
 **************************************** */
@@ -1445,6 +1457,7 @@ MEDIA QUERY 800PX+
     flex-direction: row;
     margin: 0;
     position: relative;
+    top: 0;
     width: auto;
   }
 
