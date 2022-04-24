@@ -17,7 +17,7 @@
     <?php if(isset($meta_description)){ ?>
       <meta name="description" content="<?php echo h($meta_description) ?>">
     <?php } ?>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.min.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <?php if(isset($js_files)){
       foreach($js_files as $file){

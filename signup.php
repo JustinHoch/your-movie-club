@@ -57,6 +57,9 @@ $js_files = [
 // Page Title
 $page_title = "Sign Up";
 
+// Meta Description
+$meta_description = 'Signup for an account at Your Movie Club';
+
 // Header
 include(SHARED_PATH . '/header.php');
 

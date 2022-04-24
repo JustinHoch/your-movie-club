@@ -38,6 +38,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Page Title
 $page_title = "Login";
 
+// Meta Description
+$meta_description = 'Login in to your account at Your Movie Club.';
+
 // Header
 include(SHARED_PATH . '/header.php');
 
