@@ -1269,7 +1269,7 @@ main {
 }
 
 .discover-selected span {
-  border: 2px solid var(--color-blue);
+  border: 2px solid var(--color-light-purple);
   border-radius: 20px;
   display: inline-block;
   font-weight: bold;
@@ -1288,12 +1288,30 @@ main {
 }
 
 .discover-pagination {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   font-size: 18px;
   gap: .5rem;
   justify-content: center;
   margin: 1rem 0;
+}
+
+.discover-pagination a {
+  color: var(--color-black);
+  background-color: var(--color-blue);
+  border: 2px solid var(--color-blue);
+  border-radius: 20px;
+  box-shadow: 0 0 10px var(--color-black);
+  font-weight: bold;
+  padding: .25rem;
+}
+
+.discover-pagination a:hover {
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: 0 0 10px var(--color-black);
+  color: var(--color-white);
+  text-decoration: none;
 }
 
 /* Watched Movies page */
@@ -1453,7 +1471,7 @@ MEDIA QUERY 800PX+
   #footer-container {
     flex-direction: row;
     justify-content: space-between;
-    max-width: none;
+    max-width: 1600px;
   }
 
   #ymc-attr {

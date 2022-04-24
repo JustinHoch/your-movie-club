@@ -193,11 +193,11 @@ include(SHARED_PATH . '/header.php');
     <?php if($movies->total_pages > 1){ ?>
       <div class="discover-pagination">
         <?php if($page > 1){ ?>
-          <a href="/discover<?php echo h($search_string_no_page) . "&page=" . $page - 1 ?>">Previous Page</a>
+          <a href="/discover<?php echo h($search_string_no_page) . "&page=" . $page - 1 ?>"><i class="fa-solid fa-arrow-left"></i> Previous</a>
         <?php } ?>
         <p>Page <?php echo h($page) ?> of <?php echo h($movies->total_pages) ?></p>
         <?php if($page < $movies->total_pages){ ?>
-          <a href="/discover<?php echo h($search_string_no_page) . "&page=" . $page + 1 ?>">Next Page</a>
+          <a href="/discover<?php echo h($search_string_no_page) . "&page=" . $page + 1 ?>">Next <i class="fa-solid fa-arrow-right"></i></a>
         <?php } ?>
       </div>
   <?php
