@@ -231,6 +231,16 @@ nav {
   padding: .5rem;
 }
 
+.logo-a {
+  align-items: center;
+  display: flex;
+  flex-grow: 2;
+}
+
+.logo-a:hover {
+  text-decoration: none;
+}
+
 .logo-a img {
   height: 50px;
   width: 50px;
@@ -239,14 +249,6 @@ nav {
 nav h1 {
   color: var(--color-white);
   padding: 0 1rem;
-}
-
-nav .site-name {
-  flex-grow: 2;
-}
-
-nav .site-name:hover {
-  text-decoration: none;
 }
 
 #menu-toggle {
@@ -316,7 +318,7 @@ nav .site-name:hover {
   margin-top: 69px;
   padding: 0;
   position: absolute;
-  top: 0;
+  top: -5px;
   left: 0;
   width: 100%;
   justify-content: center;

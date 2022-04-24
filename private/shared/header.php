@@ -28,8 +28,8 @@
         <nav>
           <a href="/" class="logo-a" name="Home">
             <img src="/images/logo/logo.png" alt="Your Movie Club Logo" height="150" width="150" loading=“lazy” decoding=“async”>
+            <h1>Your Movie Club</h1>
           </a>
-          <a href="/" class="site-name" name="Home"><h1>Your Movie Club</h1></a>
           <input id="menu-toggle" type="checkbox" />
           <label class='menu-button-container' for="menu-toggle">
             menu toggle
