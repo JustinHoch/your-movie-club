@@ -4,9 +4,9 @@
 <p align="center">
   <a align="center" href="https://www.yourmovieclub.com/">Visit Your Movie Club Live Site</a>
 </p>
-<!-- <p align="center">
+<p align="center">
   <a align="center" href="">View The Assets Folder</a>
-</p> -->
+</p>
 
 # A-B Tech Capstone Project - Your Movie Club
 Your Movie Club is an A-B Tech school capstone project by Justin Hochschild. The site was built using PHP, CSS, and Javascript. The main goal of this project is to create a site that persists user created data using a database and offers views based on user credentials.
