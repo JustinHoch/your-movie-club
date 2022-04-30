@@ -33,9 +33,6 @@ if(is_post_request()){
       redirect_to('/account');
     }
   }
-
-  print_r($new_club_saved);
-  print_r($new_club);
 }
 
 
