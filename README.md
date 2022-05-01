@@ -5,7 +5,7 @@
   <a align="center" href="https://www.yourmovieclub.com/">Visit Your Movie Club Live Site</a>
 </p>
 <p align="center">
-  <a align="center" href="">View The Assets Folder</a>
+  <a align="center" href="/assets">View The Assets Folder</a>
 </p>
 
 # A-B Tech Capstone Project - Your Movie Club
